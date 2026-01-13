@@ -174,7 +174,7 @@ export default function App() {
             <div className="contact-grid">
               <div className="contact-card">
                 <h3>Email</h3>
-                <a href="mailto:hello@degentech.dev">hello@degentech.dev</a>
+                <a href="mailto:hello@degentech.dev">admin@degentech.co</a>
               </div>
               <div className="contact-card">
                 <h3>Location</h3>
