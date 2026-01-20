@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
 export default function App() {
   const [isVisible, setIsVisible] = useState({});
@@ -202,8 +203,8 @@ export default function App() {
             <div className="footer-column">
               <h4>Company</h4>
               <a href="#work">Projects</a>
-              <a href="#process">Process</a>
               <a href="#contact">Contact</a>
+              <Link to="/privacy">Privacy Policy</Link>
             </div>
             <div className="footer-column">
               <h4>Connect</h4>
