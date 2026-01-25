@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { footerLinks } from '@/data/content';
 import { useTranslation } from '@/hooks/useTranslation';
@@ -11,23 +12,36 @@ const socialIcons = {
   linkedin: <Linkedin className="w-4 h-4" />,
 };
 
-/* ─── GitHub-style Heatmap ─── */
-function GitHubHeatmap() {
+/* ─── Seeded PRNG for deterministic heatmap ─── */
+function seededRandom(seed) {
+  const x = Math.sin(seed + 1) * 10000;
+  return x - Math.floor(x);
+}
+
+function generateHeatmapCells() {
   const weeks = 52;
   const days = 7;
-
   const cells = [];
   for (let w = 0; w < weeks; w++) {
     for (let d = 0; d < days; d++) {
-      const rand = Math.random();
+      const rand = seededRandom(w * days + d);
       let level = 0;
       if (rand > 0.7) level = 1;
       if (rand > 0.85) level = 2;
       if (rand > 0.93) level = 3;
       if (rand > 0.97) level = 4;
-      cells.push({ w, d, level });
+      cells.push(level);
     }
   }
+  return cells;
+}
+
+const HEATMAP_CELLS = generateHeatmapCells();
+
+/* ─── GitHub-style Heatmap ─── */
+function GitHubHeatmap() {
+  const weeks = 52;
+  const days = 7;
 
   const colors = [
     'bg-white/[0.03]',
@@ -45,15 +59,12 @@ function GitHubHeatmap() {
       <div className="flex gap-[2px] overflow-hidden">
         {Array.from({ length: weeks }, (_, w) => (
           <div key={w} className="flex flex-col gap-[2px]">
-            {Array.from({ length: days }, (_, d) => {
-              const cell = cells[w * days + d];
-              return (
-                <div
-                  key={d}
-                  className={`w-[8px] h-[8px] rounded-[2px] heatmap-cell ${colors[cell.level]}`}
-                />
-              );
-            })}
+            {Array.from({ length: days }, (_, d) => (
+              <div
+                key={d}
+                className={`w-[8px] h-[8px] rounded-[2px] heatmap-cell ${colors[HEATMAP_CELLS[w * days + d]]}`}
+              />
+            ))}
           </div>
         ))}
       </div>
