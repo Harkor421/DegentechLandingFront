@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function CustomCursor() {
   const dotRef = useRef(null);
@@ -9,10 +9,14 @@ export default function CustomCursor() {
   const circlePos = useRef({ x: 0, y: 0 });
   const visible = useRef(false);
   const hovering = useRef(false);
+  const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    if (isTouchDevice) return;
+    if (isTouchDevice) {
+      setHidden(true);
+      return;
+    }
 
     const dot = dotRef.current;
     const circle = circleRef.current;
@@ -82,11 +86,7 @@ export default function CustomCursor() {
     };
   }, []);
 
-  const isTouchDevice =
-    typeof window !== 'undefined' &&
-    ('ontouchstart' in window || navigator.maxTouchPoints > 0);
-
-  if (typeof window !== 'undefined' && isTouchDevice) return null;
+  if (hidden) return null;
 
   return (
     <>
