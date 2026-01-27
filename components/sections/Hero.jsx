@@ -70,11 +70,17 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center gradient-mesh overflow-hidden pt-16" aria-label="Hero">
+      {/* Ambient floating orbs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+        <div className="absolute top-1/4 left-[15%] w-64 h-64 rounded-full bg-accent/[0.04] blur-3xl animate-float" style={{ animationDelay: '0s', animationDuration: '8s' }} />
+        <div className="absolute bottom-1/4 right-[10%] w-80 h-80 rounded-full bg-cyan/[0.03] blur-3xl animate-float" style={{ animationDelay: '2s', animationDuration: '10s' }} />
+        <div className="absolute top-[60%] left-[50%] w-48 h-48 rounded-full bg-violet/[0.04] blur-3xl animate-float" style={{ animationDelay: '4s', animationDuration: '12s' }} />
+      </div>
       <div className="max-w-[1200px] mx-auto px-6 md:px-8 text-center relative z-10">
         {/* Performance badge */}
         {loadTime && (
-          <div className="animate-hero mb-8 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/[0.08] bg-card/50 text-xs font-mono text-body">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+          <div className="animate-hero mb-8 animate-float inline-flex items-center gap-2 px-5 py-2 rounded-full border border-accent/20 bg-accent/[0.06] text-xs font-mono text-body backdrop-blur-sm shadow-lg shadow-accent/[0.05]">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             {t.hero.badge} {loadTime > 100 ? `${(loadTime / 1000).toFixed(1)}s` : `${loadTime}ms`}
           </div>
         )}
@@ -92,15 +98,21 @@ export default function Hero() {
         <div className="animate-hero-delay-2 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href="#work"
-            className="btn-primary font-medium text-sm px-8 py-3.5 rounded-lg inline-block"
+            className="btn-primary btn-shine font-medium text-sm px-8 py-3.5 rounded-lg inline-flex items-center gap-2 group"
           >
             {t.hero.cta1}
+            <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
           </a>
           <a
             href="#contact"
-            className="btn-secondary text-sm px-8 py-3.5 rounded-lg inline-block"
+            className="btn-secondary text-sm px-8 py-3.5 rounded-lg inline-flex items-center gap-2 group"
           >
             {t.hero.cta2}
+            <svg className="w-3.5 h-3.5 opacity-50 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+            </svg>
           </a>
         </div>
 

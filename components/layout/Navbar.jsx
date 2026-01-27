@@ -17,18 +17,18 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-primary/95 backdrop-blur-xl border-b border-white/[0.06] shadow-lg shadow-black/20'
-          : 'bg-transparent'
+          ? 'bg-primary/90 backdrop-blur-2xl border-b border-white/[0.06] shadow-2xl shadow-black/30'
+          : 'bg-transparent backdrop-blur-none'
       }`}
     >
       <nav className="max-w-[1200px] mx-auto px-6 md:px-8 flex items-center justify-between h-16" aria-label="Main navigation">
         <Link
           href="/"
-          className="text-heading font-bold text-lg tracking-tight hover:opacity-80 transition-opacity"
+          className="font-bold text-lg tracking-tight transition-opacity hover:opacity-90 group"
         >
-          degentech
+          <span className="gradient-text">degen</span><span className="text-heading">tech</span>
         </Link>
 
         <div className="flex items-center gap-6 md:gap-8">
@@ -40,15 +40,20 @@ export default function Navbar() {
 
           {/* Desktop nav links */}
           <div className="hidden sm:flex items-center gap-8">
-            <a href="#capabilities" className="text-body text-sm hover:text-heading transition-colors">
-              {t.nav.services}
-            </a>
-            <a href="#work" className="text-body text-sm hover:text-heading transition-colors">
-              {t.nav.work}
-            </a>
-            <a href="#process" className="text-body text-sm hover:text-heading transition-colors">
-              {t.nav.process}
-            </a>
+            {[
+              { href: '#capabilities', label: t.nav.services },
+              { href: '#work', label: t.nav.work },
+              { href: '#process', label: t.nav.process },
+            ].map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-body/70 text-sm hover:text-heading transition-all duration-300 relative py-1 group"
+              >
+                {link.label}
+                <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-gradient-to-r from-accent to-cyan group-hover:w-full transition-all duration-300" />
+              </a>
+            ))}
           </div>
 
           {/* Language toggle */}
