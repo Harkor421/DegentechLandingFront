@@ -24,12 +24,13 @@ function OrbitRing({ radius, duration, items, reverse = false }) {
     <div className="absolute inset-0">
       {/* Ring circle */}
       <div
-        className="absolute rounded-full border border-white/[0.04]"
+        className="absolute rounded-full border border-white/[0.05]"
         style={{
           width: radius * 2,
           height: radius * 2,
           top: `calc(50% - ${radius}px)`,
           left: `calc(50% - ${radius}px)`,
+          boxShadow: 'inset 0 0 30px rgba(99, 102, 241, 0.02)',
         }}
       />
       {/* Orbit items */}
@@ -48,10 +49,10 @@ function OrbitRing({ radius, duration, items, reverse = false }) {
             animationDelay: `${-(duration / items.length) * i}s`,
           }}
         >
-          <div className="w-8 h-8 rounded-lg bg-card border border-white/[0.08] flex items-center justify-center text-[8px] font-mono text-body/60 hover:text-heading hover:border-accent/30 transition-all whitespace-nowrap group relative">
-            <span className="text-[7px] leading-none">{item.name.slice(0, 2).toUpperCase()}</span>
+          <div className="w-9 h-9 rounded-lg bg-card border border-white/[0.08] flex items-center justify-center text-[8px] font-mono text-body/60 hover:text-heading hover:border-accent/30 hover:bg-accent/10 hover:shadow-md hover:shadow-accent/15 transition-all duration-300 whitespace-nowrap group relative">
+            <span className="text-[8px] leading-none font-semibold">{item.name.slice(0, 2).toUpperCase()}</span>
             {/* Tooltip */}
-            <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity text-[9px] font-mono text-body/50 whitespace-nowrap pointer-events-none">
+            <div className="absolute -bottom-7 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-200 text-[9px] font-mono text-heading bg-elevated px-2 py-0.5 rounded-md border border-white/10 whitespace-nowrap pointer-events-none shadow-lg">
               {item.name}
             </div>
           </div>
@@ -73,7 +74,7 @@ export default function TechStackOrbit({ visible }) {
           <span className="text-accent text-xs font-mono uppercase tracking-widest mb-3 block">
             Technology
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-heading tracking-[-0.02em]">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-heading tracking-[-0.02em]">
             Our Tech Stack
           </h2>
         </div>
@@ -81,8 +82,10 @@ export default function TechStackOrbit({ visible }) {
         <div className="relative mx-auto" style={{ width: '100%', maxWidth: 500, height: 500 }}>
           {/* Center logo */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent/20 to-cyan/10 border border-white/[0.12] flex items-center justify-center">
-              <span className="text-lg font-bold gradient-text">DT</span>
+            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-accent/25 to-cyan/15 border border-white/[0.12] flex items-center justify-center shadow-lg shadow-accent/10 relative">
+              <span className="text-xl font-bold gradient-text">DT</span>
+              {/* Pulse ring */}
+              <div className="absolute inset-0 rounded-2xl border border-accent/20 animate-ping opacity-20" />
             </div>
           </div>
 

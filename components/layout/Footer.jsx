@@ -76,7 +76,9 @@ export default function Footer() {
   const { t } = useTranslation();
 
   return (
-    <footer className="border-t border-white/[0.06] relative z-10" role="contentinfo">
+    <footer className="relative z-10" role="contentinfo">
+      {/* Gradient top border */}
+      <div className="h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
       <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16">
         {/* GitHub Heatmap */}
         <div className="mb-12 overflow-hidden">
@@ -165,9 +167,11 @@ export default function Footer() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-body text-sm hover:text-heading transition-colors inline-flex items-center gap-2"
+                  className="text-body text-sm hover:text-heading transition-all duration-300 inline-flex items-center gap-2.5 group"
                 >
-                  {socialIcons[link.icon]}
+                  <span className="text-body/50 group-hover:text-accent transition-colors duration-300">
+                    {socialIcons[link.icon]}
+                  </span>
                   {link.label}
                 </a>
               ))}
@@ -177,7 +181,7 @@ export default function Footer() {
       </div>
 
       {/* Copyright */}
-      <div className="border-t border-white/[0.06]">
+      <div className="border-t border-white/[0.04]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-body/40 text-xs">
             &copy; {new Date().getFullYear()} {t.footer.copyright}

@@ -169,7 +169,7 @@ export default function Projects({ visible }) {
           <span className="text-accent text-xs font-mono uppercase tracking-widest mb-3 block">
             {t.projects.label}
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-heading tracking-[-0.02em]">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-heading tracking-[-0.02em]">
             {t.projects.heading}
           </h2>
         </div>
@@ -180,14 +180,27 @@ export default function Projects({ visible }) {
             return (
               <div
                 key={i}
-                className="glass-card rounded-xl overflow-hidden card-glow group hover:-translate-y-1 transition-all duration-300"
+                className={`glass-card rounded-xl overflow-hidden card-glow group transition-all duration-500 ${i === 0 ? 'md:col-span-2 lg:col-span-1' : ''}`}
+                style={{
+                  transitionDelay: `${i * 120}ms`,
+                }}
               >
-                <Preview />
+                <div className="relative overflow-hidden">
+                  <div className="group-hover:scale-[1.02] transition-transform duration-500 origin-center">
+                    <Preview />
+                  </div>
+                  {/* Numbered index */}
+                  <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-black/60 backdrop-blur-sm border border-white/10 flex items-center justify-center">
+                    <span className="text-[10px] font-mono text-body/60">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                  </div>
+                </div>
                 <div className="p-5 md:p-6">
                   <span className="inline-block text-[10px] font-mono uppercase tracking-widest text-accent bg-accent/10 px-2.5 py-0.5 rounded-full mb-3">
                     {project.tag}
                   </span>
-                  <h3 className="text-heading font-semibold text-base mb-2 tracking-[-0.01em]">
+                  <h3 className="text-heading font-semibold text-base mb-2 tracking-[-0.01em] group-hover:text-white transition-colors">
                     {project.title}
                   </h3>
                   <p className="text-body text-sm leading-relaxed mb-4">
@@ -206,9 +219,9 @@ export default function Projects({ visible }) {
                       </span>
                     ))}
                   </div>
-                  <a href="#" className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-accent hover:text-cyan transition-colors group/link">
+                  <a href="#" className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-accent hover:text-cyan transition-colors group/link">
                     {t.projects.caseStudy}
-                    <ArrowRight className="w-3 h-3 group-hover/link:translate-x-0.5 transition-transform" />
+                    <ArrowRight className="w-3 h-3 group-hover/link:translate-x-1 transition-transform duration-300" />
                   </a>
                 </div>
               </div>

@@ -4,14 +4,16 @@
    DESIGN SYSTEM TOKENS
    ═══════════════════════════════════════════ */
 @theme {
-  --color-primary: #0A0A0F;
-  --color-card: #111118;
-  --color-elevated: #1A1A24;
-  --color-accent: #4F46E5;
-  --color-cyan: #06B6D4;
+  --color-primary: #050508;
+  --color-card: #0C0C14;
+  --color-elevated: #161622;
+  --color-accent: #6366F1;
+  --color-cyan: #22D3EE;
   --color-heading: #F8FAFC;
   --color-body: #94A3B8;
   --color-border: rgba(255, 255, 255, 0.06);
+  --color-violet: #8B5CF6;
+  --color-emerald: #34D399;
   --font-sans: var(--font-sans), system-ui, sans-serif;
   --font-mono: var(--font-mono), monospace;
 }
@@ -25,11 +27,31 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background: #0A0A0F;
+  background: #050508;
   color: #94A3B8;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.7;
+}
+
+/* Typography enhancements */
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+  line-height: 1.15;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* Section labels — uppercase mono */
+.section-label {
+  font-size: 0.6875rem;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #4F46E5;
 }
 
 /* Hide native cursor on desktop when custom cursor active */
@@ -40,7 +62,7 @@ body {
 }
 
 ::selection {
-  background: rgba(79, 70, 229, 0.3);
+  background: rgba(99, 102, 241, 0.3);
   color: #F8FAFC;
 }
 
@@ -48,18 +70,19 @@ body {
    BACKGROUND TEXTURES
    ═══════════════════════════════════════════ */
 .dot-grid {
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 24px 24px;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
 }
 
 /* ═══════════════════════════════════════════
    GLASSMORPHISM CARD
    ═══════════════════════════════════════════ */
 .glass-card {
-  background: rgba(17, 17, 24, 0.6);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(12, 12, 20, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.2);
 }
 
 /* ═══════════════════════════════════════════
@@ -82,9 +105,10 @@ body {
 
 .gradient-mesh {
   background:
-    radial-gradient(ellipse 600px 400px at 20% 50%, rgba(79, 70, 229, 0.15) 0%, transparent 70%),
-    radial-gradient(ellipse 500px 350px at 80% 20%, rgba(6, 182, 212, 0.1) 0%, transparent 70%),
-    radial-gradient(ellipse 400px 300px at 50% 80%, rgba(79, 70, 229, 0.08) 0%, transparent 70%);
+    radial-gradient(ellipse 700px 500px at 20% 40%, rgba(99, 102, 241, 0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 500px 400px at 80% 20%, rgba(34, 211, 238, 0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 600px 350px at 60% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 70%),
+    radial-gradient(ellipse 300px 300px at 10% 90%, rgba(34, 211, 238, 0.06) 0%, transparent 70%);
   background-size: 200% 200%;
   animation: meshMove 20s ease infinite;
 }
@@ -93,10 +117,62 @@ body {
    GRADIENT TEXT
    ═══════════════════════════════════════════ */
 .gradient-text {
-  background: linear-gradient(135deg, #4F46E5 0%, #06B6D4 100%);
+  background: linear-gradient(135deg, #6366F1 0%, #22D3EE 50%, #6366F1 100%);
+  background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: shimmer 6s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ═══════════════════════════════════════════
+   FLOATING ANIMATION
+   ═══════════════════════════════════════════ */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════
+   BUTTON GLOW PULSE
+   ═══════════════════════════════════════════ */
+@keyframes btn-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(79, 70, 229, 0.15), 0 0 40px rgba(6, 182, 212, 0.08); }
+  50% { box-shadow: 0 0 30px rgba(79, 70, 229, 0.25), 0 0 60px rgba(6, 182, 212, 0.15); }
+}
+
+/* ═══════════════════════════════════════════
+   SHINE SWEEP EFFECT
+   ═══════════════════════════════════════════ */
+@keyframes shine-sweep {
+  0% { transform: translateX(-100%) skewX(-15deg); }
+  100% { transform: translateX(200%) skewX(-15deg); }
+}
+
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+  animation: shine-sweep 4s ease-in-out infinite;
+  pointer-events: none;
 }
 
 /* ═══════════════════════════════════════════
@@ -161,15 +237,50 @@ body {
    ═══════════════════════════════════════════ */
 .reveal {
   opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ═══════════════════════════════════════════
+   FLOATING AMBIENT DOTS
+   ═══════════════════════════════════════════ */
+@keyframes float-slow {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(10px, -15px); }
+  50% { transform: translate(-5px, -25px); }
+  75% { transform: translate(-15px, -10px); }
+}
+
+.ambient-dot {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.08;
+  animation: float-slow 15s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════
+   STAGGER CHILDREN REVEAL
+   ═══════════════════════════════════════════ */
+.stagger-reveal > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stagger-reveal.visible > *:nth-child(1) { transition-delay: 0ms; opacity: 1; transform: translateY(0); }
+.stagger-reveal.visible > *:nth-child(2) { transition-delay: 100ms; opacity: 1; transform: translateY(0); }
+.stagger-reveal.visible > *:nth-child(3) { transition-delay: 200ms; opacity: 1; transform: translateY(0); }
+.stagger-reveal.visible > *:nth-child(4) { transition-delay: 300ms; opacity: 1; transform: translateY(0); }
+.stagger-reveal.visible > *:nth-child(5) { transition-delay: 400ms; opacity: 1; transform: translateY(0); }
+.stagger-reveal.visible > *:nth-child(6) { transition-delay: 500ms; opacity: 1; transform: translateY(0); }
 
 /* ═══════════════════════════════════════════
    CARD HOVER EFFECTS
@@ -179,11 +290,12 @@ body {
 }
 
 .card-glow:hover {
-  border-color: rgba(79, 70, 229, 0.25);
+  border-color: rgba(99, 102, 241, 0.25);
   box-shadow:
-    0 0 0 1px rgba(79, 70, 229, 0.1),
-    0 4px 24px rgba(79, 70, 229, 0.06),
-    0 12px 48px rgba(0, 0, 0, 0.4);
+    0 0 0 1px rgba(99, 102, 241, 0.1),
+    0 4px 24px rgba(99, 102, 241, 0.08),
+    0 12px 48px rgba(0, 0, 0, 0.5);
+  transform: translateY(-2px);
 }
 
 /* ═══════════════════════════════════════════
@@ -194,8 +306,8 @@ body {
 .btn-primary {
   position: relative;
   background:
-    linear-gradient(#0A0A0F, #0A0A0F) padding-box,
-    linear-gradient(135deg, #4F46E5 0%, #06B6D4 100%) border-box;
+    linear-gradient(#050508, #050508) padding-box,
+    linear-gradient(135deg, #6366F1 0%, #22D3EE 100%) border-box;
   border: 1px solid transparent;
   color: #F8FAFC;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -203,16 +315,21 @@ body {
 
 .btn-primary:hover {
   background:
-    linear-gradient(135deg, rgba(79, 70, 229, 0.12) 0%, rgba(6, 182, 212, 0.08) 100%) padding-box,
-    linear-gradient(135deg, #4F46E5 0%, #06B6D4 100%) border-box;
+    linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(34, 211, 238, 0.1) 100%) padding-box,
+    linear-gradient(135deg, #6366F1 0%, #22D3EE 100%) border-box;
   box-shadow:
-    0 0 20px rgba(79, 70, 229, 0.15),
-    0 0 40px rgba(6, 182, 212, 0.08);
-  transform: translateY(-1px);
+    0 0 24px rgba(99, 102, 241, 0.2),
+    0 0 48px rgba(34, 211, 238, 0.1);
+  transform: translateY(-2px);
 }
 
 .btn-primary:active {
   transform: translateY(0);
+}
+
+.btn-primary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #050508, 0 0 0 4px #6366F1;
 }
 
 /* Secondary: Subtle border, transparent fill */
@@ -223,33 +340,85 @@ body {
 }
 
 .btn-secondary:hover {
-  border-color: rgba(79, 70, 229, 0.4);
+  border-color: rgba(99, 102, 241, 0.4);
   color: #F8FAFC;
-  background: rgba(79, 70, 229, 0.05);
-  transform: translateY(-1px);
+  background: rgba(99, 102, 241, 0.06);
+  transform: translateY(-2px);
 }
 
 .btn-secondary:active {
   transform: translateY(0);
 }
 
+.btn-secondary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #050508, 0 0 0 4px #6366F1;
+}
+
 /* Legacy gradient button — now uses gradient border style */
 .btn-gradient {
   background:
-    linear-gradient(#0A0A0F, #0A0A0F) padding-box,
-    linear-gradient(135deg, #4F46E5 0%, #06B6D4 100%) border-box;
+    linear-gradient(#050508, #050508) padding-box,
+    linear-gradient(135deg, #6366F1 0%, #22D3EE 100%) border-box;
   border: 1px solid transparent;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-gradient:hover {
   background:
-    linear-gradient(135deg, rgba(79, 70, 229, 0.12) 0%, rgba(6, 182, 212, 0.08) 100%) padding-box,
-    linear-gradient(135deg, #4F46E5 0%, #06B6D4 100%) border-box;
+    linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(34, 211, 238, 0.1) 100%) padding-box,
+    linear-gradient(135deg, #6366F1 0%, #22D3EE 100%) border-box;
   box-shadow:
-    0 0 20px rgba(79, 70, 229, 0.15),
-    0 0 40px rgba(6, 182, 212, 0.08);
-  transform: translateY(-1px);
+    0 0 24px rgba(99, 102, 241, 0.2),
+    0 0 48px rgba(34, 211, 238, 0.1);
+  transform: translateY(-2px);
+}
+
+/* ═══════════════════════════════════════════
+   INTERACTIVE LINK STYLES
+   ═══════════════════════════════════════════ */
+.link-hover {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.link-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #6366F1, #22D3EE);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.link-hover:hover::after {
+  width: 100%;
+}
+
+/* ═══════════════════════════════════════════
+   GRADIENT BORDER CARD (conic)
+   ═══════════════════════════════════════════ */
+.gradient-border {
+  position: relative;
+  background: #0C0C14;
+  border-radius: 0.75rem;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: conic-gradient(from 180deg, transparent 60%, #6366F1, #22D3EE, transparent 95%);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.gradient-border:hover::before {
+  opacity: 1;
 }
 
 /* ═══════════════════════════════════════════
@@ -336,9 +505,10 @@ html.lenis body {
   top: 0;
   left: 0;
   height: 2px;
-  background: linear-gradient(90deg, #4F46E5, #06B6D4);
+  background: linear-gradient(90deg, #6366F1, #22D3EE);
   z-index: 9999;
   transition: width 0.1s linear;
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.4);
 }
 
 /* ═══════════════════════════════════════════
@@ -401,4 +571,32 @@ html.lenis body {
 
 .command-palette-enter {
   animation: fadeInUp 0.15s ease-out;
+}
+
+/* ═══════════════════════════════════════════
+   SECTION DIVIDER GRADIENT
+   ═══════════════════════════════════════════ */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.2), rgba(34, 211, 238, 0.15), transparent);
+}
+
+/* ═══════════════════════════════════════════
+   SMOOTH ALL TRANSITIONS
+   ═══════════════════════════════════════════ */
+a, button, input, select, textarea {
+  transition-property: color, background-color, border-color, box-shadow, opacity, transform;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ═══════════════════════════════════════════
+   FOCUS RING FOR ACCESSIBILITY
+   ═══════════════════════════════════════════ */
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: none;
+  border-color: rgba(99, 102, 241, 0.5);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
 }

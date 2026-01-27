@@ -48,7 +48,7 @@ export default function LiveTerminal({ visible }) {
           <span className="text-accent text-xs font-mono uppercase tracking-widest mb-3 block">
             Developer Experience
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-heading tracking-[-0.02em]">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-heading tracking-[-0.02em]">
             Ship Fast. Ship Right.
           </h2>
         </div>

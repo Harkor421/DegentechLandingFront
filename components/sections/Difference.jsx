@@ -17,7 +17,7 @@ export default function Difference({ visible }) {
           <span className="text-accent text-xs font-mono uppercase tracking-widest mb-3 block">
             {t.difference.label}
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-heading tracking-[-0.02em]">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-heading tracking-[-0.02em]">
             {t.difference.heading}
           </h2>
         </div>
@@ -38,17 +38,25 @@ export default function Difference({ visible }) {
             {t.difference.items.map((item, i) => (
               <div
                 key={i}
-                className="grid grid-cols-2 gap-4 glass-card rounded-xl p-4 md:p-5"
-                style={{ animationDelay: `${i * 80}ms` }}
+                className="grid grid-cols-2 gap-4 glass-card rounded-xl p-4 md:p-5 group hover:border-accent/15 transition-all duration-300"
+                style={{
+                  transitionDelay: visible ? `${i * 80}ms` : '0ms',
+                  opacity: visible ? 1 : 0,
+                  transform: visible ? 'translateX(0)' : 'translateX(-10px)',
+                }}
               >
                 <div className="flex items-start sm:items-center gap-2 sm:gap-3">
-                  <X className="w-4 h-4 text-red-400/60 shrink-0 mt-0.5 sm:mt-0" />
-                  <span className="text-xs sm:text-sm text-body/50 line-through decoration-white/20">
+                  <div className="w-5 h-5 rounded-full bg-red-500/10 border border-red-400/20 flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">
+                    <X className="w-3 h-3 text-red-400/70" />
+                  </div>
+                  <span className="text-xs sm:text-sm text-body/40 line-through decoration-white/10">
                     {item.others}
                   </span>
                 </div>
                 <div className="flex items-start sm:items-center gap-2 sm:gap-3">
-                  <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5 sm:mt-0" />
+                  <div className="w-5 h-5 rounded-full bg-emerald-500/10 border border-emerald-400/20 flex items-center justify-center shrink-0 mt-0.5 sm:mt-0 group-hover:bg-emerald-500/20 group-hover:border-emerald-400/30 transition-colors">
+                    <Check className="w-3 h-3 text-emerald-400" />
+                  </div>
                   <span className="text-xs sm:text-sm text-heading font-medium">
                     {item.us}
                   </span>
