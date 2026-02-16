@@ -8,7 +8,7 @@ export default function Difference({ visible }) {
   return (
     <section
       data-section="difference"
-      className="py-[100px] md:py-[120px] px-6 md:px-8 relative z-10"
+      className="py-16 md:py-[120px] px-6 md:px-8 relative z-10"
       aria-label="Why choose us"
     >
       <div className={`max-w-[1200px] mx-auto reveal ${visible ? 'visible' : ''}`}>
@@ -23,11 +23,11 @@ export default function Difference({ visible }) {
 
         <div className="max-w-[800px] mx-auto">
           {/* Column headers */}
-          <div className="grid grid-cols-2 gap-4 mb-2">
-            <div className="text-xs font-mono uppercase tracking-widest text-body/40">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-2">
+            <div className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-body/40">
               {t.difference.othersHeader}
             </div>
-            <div className="text-xs font-mono uppercase tracking-widest text-accent">
+            <div className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-accent">
               {t.difference.usHeader}
             </div>
           </div>
@@ -37,7 +37,7 @@ export default function Difference({ visible }) {
             {t.difference.items.map((item, i) => (
               <div
                 key={i}
-                className="grid grid-cols-2 gap-4 py-5 border-b border-white/[0.06]"
+                className="grid grid-cols-2 gap-3 sm:gap-4 py-4 sm:py-5 border-b border-white/[0.06]"
                 style={{
                   opacity: visible ? 1 : 0,
                   transform: visible ? 'translateY(0)' : 'translateY(10px)',
@@ -47,8 +47,8 @@ export default function Difference({ visible }) {
                   transitionDelay: visible ? `${i * 80}ms` : '0ms',
                 }}
               >
-                <span className="text-sm text-body/50">{item.others}</span>
-                <span className="text-sm text-heading">{item.us}</span>
+                <span className="text-xs sm:text-sm text-body/50">{item.others}</span>
+                <span className="text-xs sm:text-sm text-heading">{item.us}</span>
               </div>
             ))}
           </div>
