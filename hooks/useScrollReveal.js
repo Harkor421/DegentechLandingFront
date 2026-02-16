@@ -2,30 +2,41 @@
 
 import { useState, useEffect } from 'react';
 
-export function useScrollReveal(threshold = 0.15) {
+export function useScrollReveal() {
   const [visibleSections, setVisibleSections] = useState({});
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setVisibleSections((prev) => ({
-              ...prev,
-              [entry.target.dataset.section]: true,
-            }));
-          }
-        });
-      },
-      { threshold }
-    );
+    let observer;
 
-    document.querySelectorAll('[data-section]').forEach((el) => {
-      observer.observe(el);
-    });
+    // Small delay ensures DOM is painted after hydration (fixes iOS Safari)
+    const timer = setTimeout(() => {
+      const elements = document.querySelectorAll('[data-section]');
+      if (!elements.length) return;
 
-    return () => observer.disconnect();
-  }, [threshold]);
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const section = entry.target.dataset.section;
+              setVisibleSections((prev) => ({ ...prev, [section]: true }));
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0,
+          rootMargin: '0px 0px -10% 0px',
+        }
+      );
+
+      elements.forEach((el) => observer.observe(el));
+    }, 100);
+
+    return () => {
+      clearTimeout(timer);
+      if (observer) observer.disconnect();
+    };
+  }, []);
 
   return visibleSections;
 }
