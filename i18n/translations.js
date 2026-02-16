@@ -10,7 +10,7 @@ export const translations = {
       titleLine1: 'We build what',
       titleLine2: 'others won\'t dare',
       subtitle:
-        'We turn ambitious ideas into powerful digital products. From complex platforms to intelligent systems.we engineer the future.',
+        'We turn ambitious ideas into powerful digital products. From complex platforms to intelligent systems, we engineer the future.',
       cta1: 'View Projects',
       cta2: 'Get in Touch',
     },
@@ -38,7 +38,7 @@ export const translations = {
         },
         {
           title: 'Product Strategy',
-          desc: 'From concept to launch.roadmaps, architecture, and go-to-market.',
+          desc: 'From concept to launch. Roadmaps, architecture, and go-to-market.',
           icon: 'chart',
         },
       ],
@@ -175,7 +175,7 @@ export const translations = {
       titleLine1: 'Construimos lo que',
       titleLine2: 'otros no se atreven',
       subtitle:
-        'Transformamos ideas ambiciosas en productos digitales de alto impacto. Desde plataformas complejas hasta sistemas inteligentes.diseñamos el futuro.',
+        'Transformamos ideas ambiciosas en productos digitales de alto impacto. Desde plataformas complejas hasta sistemas inteligentes, diseñamos el futuro.',
       cta1: 'Ver Proyectos',
       cta2: 'Contáctanos',
     },
@@ -203,7 +203,7 @@ export const translations = {
         },
         {
           title: 'Estrategia de Producto',
-          desc: 'Del concepto al lanzamiento.hojas de ruta, arquitectura y go-to-market.',
+          desc: 'Del concepto al lanzamiento. Hojas de ruta, arquitectura y go-to-market.',
           icon: 'chart',
         },
       ],

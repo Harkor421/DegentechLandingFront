@@ -11,7 +11,10 @@
       "Bash(npx next build)",
       "Bash(test:*)",
       "Bash(npm run build:*)",
-      "Bash(lsof:*)"
+      "Bash(lsof:*)",
+      "Bash(gh api:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)"
     ]
   }
 }

@@ -18,6 +18,7 @@ import TechStackOrbit from '@/components/sections/TechStackOrbit';
 import LiveTerminal from '@/components/sections/LiveTerminal';
 import APIContact from '@/components/sections/APIContact';
 import NoiseOverlay from '@/components/ui/NoiseOverlay';
+import SmokeLoader from '@/components/ui/SmokeLoader';
 import ScrollProgressBar from '@/components/ui/ScrollProgressBar';
 import CommandPalette from '@/components/ui/CommandPalette';
 import EasterEggs from '@/components/ui/EasterEggs';
@@ -28,6 +29,7 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-primary relative dot-grid">
+      <SmokeLoader />
       <ScrollProgressBar />
       <NoiseOverlay />
       <CommandPalette />

@@ -2,6 +2,7 @@
 
 import { useTranslation } from '@/hooks/useTranslation';
 import { clientLogos } from '@/data/content';
+import SmokeEdges from '@/components/ui/SmokeEdges';
 
 function WordReveal({ text, className = '', delay = 0 }) {
   const words = text.split(' ');
@@ -29,10 +30,13 @@ export default function Hero() {
     <section className="relative min-h-screen flex flex-col overflow-hidden" aria-label="Hero">
       {/* Background image */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-hero-bg"
         style={{ backgroundImage: "url('/background.png')" }}
         aria-hidden="true"
       />
+      {/* Smoke edges — hero only */}
+      <SmokeEdges />
+
       {/* Dark overlays for text readability */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" aria-hidden="true" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30" aria-hidden="true" />
@@ -45,7 +49,7 @@ export default function Hero() {
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-[-0.02em] leading-[1.1] mb-3 animate-hero">
             <WordReveal text={t.hero.titleLine1} delay={200} />
           </h1>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-white/60 tracking-[-0.01em] leading-[1.2] mb-8">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-white/60 tracking-[-0.01em] leading-[1.2] mb-8 animate-hero-delay">
             <WordReveal text={t.hero.titleLine2} delay={700} />
           </h2>
 
@@ -74,16 +78,17 @@ export default function Hero() {
       </div>
 
       {/* Bottom logo strip */}
-      <div className="relative z-10 border-t border-white/[0.06]">
+      <div className="relative z-10 border-t border-white/[0.06] animate-hero-delay-3">
         <div className="w-full px-8 md:px-14 lg:px-20 py-6 flex items-center gap-10 md:gap-16">
           <p className="text-[11px] font-mono uppercase tracking-[0.15em] text-white/30 whitespace-nowrap shrink-0">
             {t.marquee.label}
           </p>
           <div className="flex items-center gap-12 md:gap-20">
-            {clientLogos.map((name) => (
+            {clientLogos.map((name, i) => (
               <span
                 key={name}
-                className="text-xl md:text-2xl font-bold text-white/70 tracking-tight"
+                className="text-xl md:text-2xl font-bold text-white/70 tracking-tight animate-hero-logo"
+                style={{ animationDelay: `${1.3 + i * 0.1}s` }}
               >
                 {name}
               </span>

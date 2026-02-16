@@ -76,10 +76,22 @@ export default function Footer() {
   const { t } = useTranslation();
 
   return (
-    <footer className="relative z-10" role="contentinfo">
+    <footer className="relative z-10 overflow-hidden" role="contentinfo">
+      {/* Background image — mirrors hero */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/background.png')" }}
+        aria-hidden="true"
+      />
+      {/* Top fade from site bg into the image */}
+      <div
+        className="absolute inset-0"
+        style={{ background: 'linear-gradient(to bottom, #0A0A0E 0%, #0A0A0Ecc 15%, #0A0A0E99 40%, #0A0A0E66 100%)' }}
+        aria-hidden="true"
+      />
       {/* Gradient top border */}
-      <div className="h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
-      <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16">
+      <div className="relative h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
+      <div className="relative max-w-[1200px] mx-auto px-6 md:px-8 py-16">
         {/* GitHub Heatmap */}
         <div className="mb-12 overflow-hidden">
           <GitHubHeatmap />
@@ -181,7 +193,7 @@ export default function Footer() {
       </div>
 
       {/* Copyright */}
-      <div className="border-t border-white/[0.04]">
+      <div className="relative border-t border-white/[0.04]">
         <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-body/40 text-xs">
             &copy; {new Date().getFullYear()} {t.footer.copyright}
