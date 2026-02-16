@@ -39,10 +39,12 @@ export default function Difference({ visible }) {
                 key={i}
                 className="grid grid-cols-2 gap-4 py-5 border-b border-white/[0.06]"
                 style={{
-                  transitionDelay: visible ? `${i * 80}ms` : '0ms',
                   opacity: visible ? 1 : 0,
                   transform: visible ? 'translateY(0)' : 'translateY(10px)',
-                  transition: 'opacity 0.5s ease, transform 0.5s ease',
+                  transitionProperty: 'opacity, transform',
+                  transitionDuration: '0.5s',
+                  transitionTimingFunction: 'ease',
+                  transitionDelay: visible ? `${i * 80}ms` : '0ms',
                 }}
               >
                 <span className="text-sm text-body/50">{item.others}</span>
