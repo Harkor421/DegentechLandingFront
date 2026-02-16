@@ -1,206 +1,157 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { footerLinks } from '@/data/content';
 import { useTranslation } from '@/hooks/useTranslation';
-import { Github, Twitter, Linkedin } from 'lucide-react';
+import { Github, Twitter, Linkedin, Youtube } from 'lucide-react';
 
 const socialIcons = {
-  github: <Github className="w-4 h-4" />,
-  twitter: <Twitter className="w-4 h-4" />,
-  linkedin: <Linkedin className="w-4 h-4" />,
+  github: <Github className="w-[18px] h-[18px]" />,
+  twitter: <Twitter className="w-[18px] h-[18px]" />,
+  linkedin: <Linkedin className="w-[18px] h-[18px]" />,
+  youtube: <Youtube className="w-[18px] h-[18px]" />,
 };
-
-/* ─── Seeded PRNG for deterministic heatmap ─── */
-function seededRandom(seed) {
-  const x = Math.sin(seed + 1) * 10000;
-  return x - Math.floor(x);
-}
-
-function generateHeatmapCells() {
-  const weeks = 52;
-  const days = 7;
-  const cells = [];
-  for (let w = 0; w < weeks; w++) {
-    for (let d = 0; d < days; d++) {
-      const rand = seededRandom(w * days + d);
-      let level = 0;
-      if (rand > 0.7) level = 1;
-      if (rand > 0.85) level = 2;
-      if (rand > 0.93) level = 3;
-      if (rand > 0.97) level = 4;
-      cells.push(level);
-    }
-  }
-  return cells;
-}
-
-const HEATMAP_CELLS = generateHeatmapCells();
-
-/* ─── GitHub-style Heatmap ─── */
-function GitHubHeatmap() {
-  const weeks = 52;
-  const days = 7;
-
-  const colors = [
-    'bg-white/[0.03]',
-    'bg-emerald-500/20',
-    'bg-emerald-500/40',
-    'bg-emerald-500/60',
-    'bg-emerald-400/80',
-  ];
-
-  return (
-    <div className="mb-8">
-      <div className="text-[10px] font-mono text-body/30 mb-2 uppercase tracking-wider">
-        Activity — last 52 weeks
-      </div>
-      <div className="flex gap-[2px] overflow-hidden">
-        {Array.from({ length: weeks }, (_, w) => (
-          <div key={w} className="flex flex-col gap-[2px]">
-            {Array.from({ length: days }, (_, d) => (
-              <div
-                key={d}
-                className={`w-[8px] h-[8px] rounded-[2px] heatmap-cell ${colors[HEATMAP_CELLS[w * days + d]]}`}
-              />
-            ))}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
 
 export default function Footer() {
   const { t } = useTranslation();
 
   return (
-    <footer className="relative z-10 overflow-hidden" role="contentinfo">
-      {/* Background image — mirrors hero */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/background.png')" }}
-        aria-hidden="true"
-      />
-      {/* Top fade from site bg into the image */}
-      <div
-        className="absolute inset-0"
-        style={{ background: 'linear-gradient(to bottom, #0A0A0E 0%, #0A0A0Ecc 15%, #0A0A0E99 40%, #0A0A0E66 100%)' }}
-        aria-hidden="true"
-      />
-      {/* Gradient top border */}
-      <div className="relative h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
-      <div className="relative max-w-[1200px] mx-auto px-6 md:px-8 py-16">
-        {/* GitHub Heatmap */}
-        <div className="mb-12 overflow-hidden">
-          <GitHubHeatmap />
-        </div>
+    <footer className="relative z-10" role="contentinfo">
+      {/* ── CTA Section with background image ── */}
+      <div className="relative overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/background.png')" }}
+          aria-hidden="true"
+        />
+        {/* Gradient overlay: fade from site bg at top, darken to footer bg at bottom */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(to bottom, #0A0A0E 0%, rgba(10,10,14,0.6) 30%, rgba(10,10,14,0.3) 50%, #1a1a1f 100%)',
+          }}
+          aria-hidden="true"
+        />
 
-        <div className="grid grid-cols-2 md:grid-cols-[1.5fr_1fr_1fr_1fr] gap-10 md:gap-8">
-          {/* Logo column */}
-          <div className="col-span-2 md:col-span-1">
-            <img
-              src="/logo.png"
-              alt="DegenTech"
-              className="h-10 w-auto mb-4 brightness-90 hover:brightness-110 transition"
-            />
-            <p className="text-body text-sm leading-relaxed max-w-[240px] mb-6">
-              {t.footer.tagline}
-            </p>
-            {/* Security badges */}
-            <div className="flex flex-wrap gap-2">
-              {['SOC 2', 'GDPR', 'AES-256'].map((badge) => (
-                <span
-                  key={badge}
-                  className="text-[10px] font-mono text-body/40 border border-white/[0.06] px-2 py-0.5 rounded"
-                >
-                  {badge}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Products */}
-          <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-heading mb-5">
-              {t.footer.products}
-            </h4>
-            <div className="flex flex-col gap-3">
-              {footerLinks.products.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="text-body text-sm hover:text-heading transition-colors"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-heading mb-5">
-              {t.footer.company}
-            </h4>
-            <div className="flex flex-col gap-3">
-              {footerLinks.company.map((link) =>
-                link.isRoute ? (
-                  <Link
-                    key={link.label}
-                    href={link.href}
-                    className="text-body text-sm hover:text-heading transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                ) : (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    className="text-body text-sm hover:text-heading transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                )
-              )}
-            </div>
-          </div>
-
-          {/* Connect */}
-          <div>
-            <h4 className="text-xs font-mono uppercase tracking-widest text-heading mb-5">
-              {t.footer.connect}
-            </h4>
-            <div className="flex flex-col gap-3">
-              {footerLinks.social.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-body text-sm hover:text-heading transition-all duration-300 inline-flex items-center gap-2.5 group"
-                >
-                  <span className="text-body/50 group-hover:text-accent transition-colors duration-300">
-                    {socialIcons[link.icon]}
-                  </span>
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </div>
+        <div className="relative max-w-[1200px] mx-auto px-6 md:px-8 pt-24 pb-32 md:pt-32 md:pb-40">
+          <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-heading max-w-[600px] leading-[1.1] mb-6">
+            {t.footer.ctaHeading}
+          </h2>
+          <p className="text-body/70 text-base md:text-lg max-w-[480px] leading-relaxed mb-10">
+            {t.footer.ctaSubtitle}
+          </p>
+          <a
+            href="#contact"
+            className="inline-flex items-center px-7 py-3 rounded-full border border-white/20 text-heading text-sm font-medium backdrop-blur-sm hover:bg-white/10 transition-colors duration-300"
+          >
+            {t.footer.ctaButton}
+          </a>
         </div>
       </div>
 
-      {/* Copyright */}
-      <div className="relative border-t border-white/[0.04]">
-        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-body/40 text-xs">
-            &copy; {new Date().getFullYear()} {t.footer.copyright}
-          </p>
-          <div className="flex items-center gap-1.5 text-xs text-body/30 font-mono">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-            {t.footer.operational}
+      {/* ── Footer links section ── */}
+      <div className="bg-[#1a1a1f]">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16 md:py-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-[2fr_1fr_1fr] gap-12 md:gap-8">
+            {/* Brand column */}
+            <div>
+              <div className="flex items-baseline gap-0.5 mb-4">
+                <span className="text-heading text-xl font-semibold tracking-tight">
+                  DegenTech
+                </span>
+                <span className="text-heading/40 text-[10px] align-super">®</span>
+              </div>
+              <p className="text-body/50 text-sm leading-relaxed max-w-[380px] mb-8">
+                {t.footer.tagline}
+              </p>
+
+              {/* Social icons */}
+              <div className="flex gap-3">
+                {footerLinks.social.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 rounded-lg border border-white/[0.08] bg-white/[0.03] flex items-center justify-center text-body/50 hover:text-heading hover:border-white/20 hover:bg-white/[0.06] transition-all duration-300"
+                    aria-label={link.label}
+                  >
+                    {socialIcons[link.icon]}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Explore column */}
+            <div>
+              <h4 className="text-heading text-sm font-medium mb-6">
+                {t.footer.explore}
+              </h4>
+              <div className="flex flex-col gap-4">
+                {footerLinks.explore.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    className="text-body/50 text-sm hover:text-heading transition-colors duration-200"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Support column */}
+            <div>
+              <h4 className="text-heading text-sm font-medium mb-6">
+                {t.footer.support}
+              </h4>
+              <div className="flex flex-col gap-4">
+                {footerLinks.support.map((link) =>
+                  link.isRoute ? (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      className="text-body/50 text-sm hover:text-heading transition-colors duration-200"
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      className="text-body/50 text-sm hover:text-heading transition-colors duration-200"
+                    >
+                      {link.label}
+                    </a>
+                  )
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ── Bottom bar ── */}
+        <div className="border-t border-white/[0.06]">
+          <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-body/30 text-xs">
+              &copy; {new Date().getFullYear()} {t.footer.copyright}
+            </p>
+            <div className="flex items-center gap-6 text-xs">
+              <a href="#" className="text-body/40 hover:text-heading transition-colors duration-200">
+                {t.footer.terms}
+              </a>
+              <a href="/privacy" className="text-body/40 hover:text-heading transition-colors duration-200">
+                {t.footer.privacy}
+              </a>
+              <a href="#" className="text-body/40 hover:text-heading transition-colors duration-200">
+                {t.footer.cookies}
+              </a>
+              <span className="hidden sm:block w-px h-4 bg-white/10" />
+              <span className="text-body/30 hidden sm:block">
+                {t.footer.designedBy}
+              </span>
+            </div>
           </div>
         </div>
       </div>

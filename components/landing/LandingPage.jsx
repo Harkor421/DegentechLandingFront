@@ -9,12 +9,8 @@ import Hero from '@/components/sections/Hero';
 
 import Capabilities from '@/components/sections/Capabilities';
 import Projects from '@/components/sections/Projects';
-import Process from '@/components/sections/Process';
 import Difference from '@/components/sections/Difference';
-import Testimonials from '@/components/sections/Testimonials';
 import Team from '@/components/sections/Team';
-import ContactCTA from '@/components/sections/ContactCTA';
-import TechStackOrbit from '@/components/sections/TechStackOrbit';
 import LiveTerminal from '@/components/sections/LiveTerminal';
 import APIContact from '@/components/sections/APIContact';
 import NoiseOverlay from '@/components/ui/NoiseOverlay';
@@ -40,14 +36,10 @@ export default function LandingPage() {
         <Hero />
         <Capabilities visible={visible.capabilities} />
         <Projects visible={visible.work} />
-        <TechStackOrbit visible={visible.techstack} />
-        <Process visible={visible.process} />
         <Difference visible={visible.difference} />
-        <Testimonials visible={visible.testimonials} />
         <Team visible={visible.team} />
         <LiveTerminal visible={visible.terminal} />
         <APIContact visible={visible.apicontact} />
-        <ContactCTA visible={visible.contact} />
       </main>
       <Footer />
     </div>

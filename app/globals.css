@@ -573,17 +573,6 @@ html.lenis body {
 }
 
 /* ═══════════════════════════════════════════
-   GITHUB HEATMAP
-   ═══════════════════════════════════════════ */
-.heatmap-cell {
-  transition: opacity 0.2s;
-}
-
-.heatmap-cell:hover {
-  opacity: 0.8;
-}
-
-/* ═══════════════════════════════════════════
    COMMAND PALETTE
    ═══════════════════════════════════════════ */
 @keyframes fadeInUp {
