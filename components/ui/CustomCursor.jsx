@@ -67,7 +67,7 @@ export default function CustomCursor() {
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mouseleave', onMouseLeave);
 
-    const interactiveElements = document.querySelectorAll('a, button, [role="button"], .card-glow');
+    const interactiveElements = document.querySelectorAll('a, button, [role="button"]');
     interactiveElements.forEach((el) => {
       el.addEventListener('mouseenter', onMouseEnterInteractive);
       el.addEventListener('mouseleave', onMouseLeaveInteractive);

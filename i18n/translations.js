@@ -124,19 +124,10 @@ export const translations = {
         },
       ],
     },
-    terminal: {
-      label: 'Developer Experience',
-      heading: 'Ship Fast. Ship Right.',
-    },
-    apiContact: {
-      label: 'API',
-      heading: 'Start a Project',
-      requestBody: 'Request Body',
-      namePlaceholder: '"Your Name"',
-      emailPlaceholder: '"you@company.com"',
-      messagePlaceholder: '"Tell us about your project..."',
-      sendRequest: 'Send Request',
-      requestSent: '200 — Request Sent',
+    contact: {
+      heading: 'Ready to build something?',
+      subtitle: 'Tell us about your project. We respond within 24 hours.',
+      cta: 'Start a Project',
     },
     commandPalette: {
       placeholder: 'Type a command or search...',
@@ -147,10 +138,10 @@ export const translations = {
       goToContact: 'Go to Contact',
     },
     footer: {
-      ctaHeading: 'The climb is part of it',
+      ctaHeading: 'Ready to build something?',
       ctaSubtitle:
-        "Growth doesn't happen at the top. It happens in the effort, in the friction, in every moment you choose to keep going.",
-      ctaButton: 'Take the Next Step',
+        'Tell us about your project. We respond within 24 hours.',
+      ctaButton: 'Get in Touch',
       tagline:
         'DegenTech supports those navigating uncertainty, building momentum through steady effort and honest work.',
       explore: 'Explore',
@@ -331,10 +322,10 @@ export const translations = {
       cta: 'Iniciar un Proyecto',
     },
     footer: {
-      ctaHeading: 'El ascenso es parte del camino',
+      ctaHeading: '¿Listo para construir algo?',
       ctaSubtitle:
-        'El crecimiento no ocurre en la cima. Ocurre en el esfuerzo, en la fricción, en cada momento que eliges seguir adelante.',
-      ctaButton: 'Da el Siguiente Paso',
+        'Cuéntanos sobre tu proyecto. Te respondemos en 24 horas.',
+      ctaButton: 'Contáctanos',
       tagline:
         'DegenTech apoya a quienes navegan la incertidumbre, construyendo impulso con esfuerzo constante y trabajo honesto.',
       explore: 'Explorar',

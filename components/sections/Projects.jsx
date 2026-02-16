@@ -27,27 +27,22 @@ export default function Projects({ visible }) {
           {t.projects.items.map((project, i) => (
             <div
               key={i}
-              className="glass-card rounded-xl overflow-hidden card-glow group transition-all duration-500"
+              className="bg-card rounded-xl overflow-hidden border border-white/[0.06] group transition-all duration-300 hover:border-white/[0.10]"
               style={{ transitionDelay: `${i * 120}ms` }}
             >
               <div className="relative overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-[200px] md:h-[240px] object-cover object-top group-hover:scale-[1.03] transition-transform duration-500"
+                  className="w-full h-[200px] md:h-[240px] object-cover object-top group-hover:scale-[1.01] transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#111116] via-transparent to-transparent opacity-60" />
-                <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-black/60 backdrop-blur-sm border border-white/10 flex items-center justify-center">
-                  <span className="text-[10px] font-mono text-body/60">
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60" />
               </div>
               <div className="p-5 md:p-6">
-                <span className="inline-block text-[10px] font-mono uppercase tracking-widest text-accent bg-accent/10 px-2.5 py-0.5 rounded-full mb-3">
+                <span className="inline-block text-[10px] font-mono uppercase tracking-widest text-accent mb-3">
                   {project.tag}
                 </span>
-                <h3 className="text-heading font-semibold text-base mb-2 tracking-[-0.01em] group-hover:text-white transition-colors">
+                <h3 className="text-heading font-semibold text-base mb-2 tracking-[-0.01em]">
                   {project.title}
                 </h3>
                 <p className="text-body text-sm leading-relaxed mb-4">
@@ -66,7 +61,7 @@ export default function Projects({ visible }) {
                       href={project.previewUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs font-medium text-accent hover:text-cyan transition-colors group/link"
+                      className="inline-flex items-center gap-1.5 text-xs font-medium text-accent hover:text-heading transition-colors group/link"
                     >
                       <ExternalLink className="w-3 h-3" />
                       {t.projects.viewProject}

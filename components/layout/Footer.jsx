@@ -38,11 +38,17 @@ export default function Footer() {
           <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-heading max-w-[600px] leading-[1.1] mb-6">
             {t.footer.ctaHeading}
           </h2>
-          <p className="text-body/70 text-base md:text-lg max-w-[480px] leading-relaxed mb-10">
+          <p className="text-body/70 text-base md:text-lg max-w-[480px] leading-relaxed mb-6">
             {t.footer.ctaSubtitle}
           </p>
           <a
-            href="#contact"
+            href="mailto:admin@degentech.co"
+            className="text-body/50 hover:text-heading transition-colors text-sm mb-8 block font-mono"
+          >
+            admin@degentech.co
+          </a>
+          <a
+            href="mailto:admin@degentech.co"
             className="inline-flex items-center px-7 py-3 rounded-full border border-white/20 text-heading text-sm font-medium backdrop-blur-sm hover:bg-white/10 transition-colors duration-300"
           >
             {t.footer.ctaButton}
