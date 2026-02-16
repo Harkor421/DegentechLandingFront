@@ -5,31 +5,17 @@ export const translations = {
       work: 'Work',
       process: 'Process',
       contact: 'Contact',
-      activity: 'Building 3 projects',
     },
     hero: {
-      badge: 'Page loaded in',
-      titleLine1: 'Software & hardware for the',
-      titleLine2: 'autonomous economy',
+      titleLine1: 'We build what',
+      titleLine2: 'others won\'t dare',
       subtitle:
-        'We build custom software, manufacture precision hardware, and integrate intelligent systems for companies worldwide.',
+        'We turn ambitious ideas into powerful digital products. From complex platforms to intelligent systems.we engineer the future.',
       cta1: 'View Projects',
       cta2: 'Get in Touch',
     },
-    stats: [
-      { target: 50, suffix: '+', label: 'Projects Delivered' },
-      { target: 12, suffix: '', label: 'Countries Served' },
-      { target: 98, suffix: '%', label: 'Client Satisfaction' },
-      { text: '5yr', label: 'Avg. Partnership' },
-    ],
     marquee: {
-      label: 'Trusted by teams building the future',
-    },
-    uptime: {
-      uptime: '99.99% uptime',
-      api: '<200ms API response',
-      soc: 'SOC 2 compliant',
-      encrypted: 'End-to-end encrypted',
+      label: 'Companies that trust us',
     },
     capabilities: {
       label: 'What We Do',
@@ -41,18 +27,18 @@ export const translations = {
           icon: 'bolt',
         },
         {
-          title: '3D Manufacturing',
-          desc: 'Rapid prototyping & production-grade parts with industrial precision.',
+          title: 'Web Applications',
+          desc: 'High-performance web apps with modern frameworks and seamless UX.',
           icon: 'cube',
         },
         {
-          title: 'IoT Integration',
-          desc: 'Bridging hardware and software with connected device ecosystems.',
+          title: 'System Integration',
+          desc: 'Connecting services, APIs, and data pipelines into unified platforms.',
           icon: 'link',
         },
         {
           title: 'Product Strategy',
-          desc: 'From concept to launch — roadmaps, architecture, and go-to-market.',
+          desc: 'From concept to launch.roadmaps, architecture, and go-to-market.',
           icon: 'chart',
         },
       ],
@@ -67,17 +53,15 @@ export const translations = {
           tag: 'SaaS',
           description:
             'Real-time production analytics & OEE tracking with predictive maintenance insights.',
-          result: '340% increase in production visibility',
           tech: ['React', 'Node.js', 'PostgreSQL'],
           gradientClass: 'project-gradient-1',
         },
         {
-          title: '3D Robotics Housing',
-          tag: 'Hardware',
+          title: 'AI Analytics Platform',
+          tag: 'AI/ML',
           description:
-            'Industrial-grade robotic arm casings optimized for FDM printing with custom tooling.',
-          result: '67% reduction in prototyping cycle time',
-          tech: ['CAD', 'FDM', 'Material Science'],
+            'Intelligent data pipeline with ML-powered insights and automated reporting dashboards.',
+          tech: ['Python', 'TensorFlow', 'Next.js'],
           gradientClass: 'project-gradient-2',
         },
         {
@@ -85,7 +69,6 @@ export const translations = {
           tag: 'Fintech',
           description:
             'Low-latency multi-exchange integration with real-time risk analytics.',
-          result: 'Sub-5ms execution across 12 exchanges',
           tech: ['Python', 'WebSockets', 'Redis'],
           gradientClass: 'project-gradient-3',
         },
@@ -110,8 +93,8 @@ export const translations = {
         { others: 'Weeks of discovery meetings', us: 'Ship a working prototype in 5 days' },
         { others: 'Vague "agile" promises', us: 'Fixed-scope sprints with daily demos' },
         { others: 'Junior devs with senior prices', us: 'Senior engineers on every project' },
-        { others: 'Disappear after launch', us: '5-year average client partnership' },
-        { others: 'Software-only thinking', us: 'Full-stack: firmware to cloud' },
+        { others: 'Disappear after launch', us: 'Long-term partnership and support' },
+        { others: 'One-size-fits-all templates', us: 'Custom architecture for every project' },
       ],
     },
     testimonials: {
@@ -127,14 +110,14 @@ export const translations = {
         },
         {
           quote:
-            'Their IoT integration cut our monitoring costs by 40% and gave us real-time visibility we never had. The team operates like a SWAT unit.',
+            'Their system integration gave us real-time visibility we never had. The team operates like a SWAT unit.',
           name: 'Sarah Okonjo',
           role: 'VP Engineering',
           company: 'NexGen Manufacturing',
         },
         {
           quote:
-            'The trading platform handles 50K+ concurrent connections with sub-5ms latency. DegenTech understands performance at the metal level.',
+            'The trading platform handles massive scale without breaking a sweat. DegenTech understands performance at every level.',
           name: 'James Whitfield',
           role: 'Head of Technology',
           company: 'Meridian Capital',
@@ -148,12 +131,12 @@ export const translations = {
         {
           name: 'Anthony Rodelo',
           role: 'Co-Founder & CEO',
-          bio: 'Leads company vision and strategy. Focused on scaling autonomous systems across industries.',
+          bio: 'Leads company vision and strategy. Focused on scaling software solutions across industries.',
         },
         {
           name: 'Samir Gonzalez',
           role: 'Co-Founder & CTO',
-          bio: 'Oversees engineering and architecture. Specializes in distributed systems and IoT infrastructure.',
+          bio: 'Oversees engineering and architecture. Specializes in distributed systems and cloud infrastructure.',
         },
         {
           name: 'Ismael Morales',
@@ -168,7 +151,7 @@ export const translations = {
       cta: 'Start a Project',
     },
     footer: {
-      tagline: 'Building the future of autonomous systems.',
+      tagline: 'Building the future of software.',
       products: 'Products',
       company: 'Company',
       connect: 'Connect',
@@ -187,31 +170,17 @@ export const translations = {
       work: 'Proyectos',
       process: 'Proceso',
       contact: 'Contacto',
-      activity: 'Construyendo 3 proyectos',
     },
     hero: {
-      badge: 'Cargado en',
-      titleLine1: 'Software y hardware para la',
-      titleLine2: 'economía autónoma',
+      titleLine1: 'Construimos lo que',
+      titleLine2: 'otros no se atreven',
       subtitle:
-        'Construimos software personalizado, fabricamos hardware de precisión e integramos sistemas inteligentes para empresas en todo el mundo.',
+        'Transformamos ideas ambiciosas en productos digitales de alto impacto. Desde plataformas complejas hasta sistemas inteligentes.diseñamos el futuro.',
       cta1: 'Ver Proyectos',
       cta2: 'Contáctanos',
     },
-    stats: [
-      { target: 50, suffix: '+', label: 'Proyectos Entregados' },
-      { target: 12, suffix: '', label: 'Países Atendidos' },
-      { target: 98, suffix: '%', label: 'Satisfacción del Cliente' },
-      { text: '5 años', label: 'Asociación Promedio' },
-    ],
     marquee: {
-      label: 'La confianza de equipos que construyen el futuro',
-    },
-    uptime: {
-      uptime: '99.99% disponibilidad',
-      api: '<200ms respuesta API',
-      soc: 'Cumple SOC 2',
-      encrypted: 'Cifrado de extremo a extremo',
+      label: 'Empresas que confían en nosotros',
     },
     capabilities: {
       label: 'Lo Que Hacemos',
@@ -223,18 +192,18 @@ export const translations = {
           icon: 'bolt',
         },
         {
-          title: 'Manufactura 3D',
-          desc: 'Prototipado rápido y piezas de grado industrial con precisión.',
+          title: 'Aplicaciones Web',
+          desc: 'Apps web de alto rendimiento con frameworks modernos y UX impecable.',
           icon: 'cube',
         },
         {
-          title: 'Integración IoT',
-          desc: 'Conectando hardware y software en ecosistemas de dispositivos inteligentes.',
+          title: 'Integración de Sistemas',
+          desc: 'Conectando servicios, APIs y pipelines de datos en plataformas unificadas.',
           icon: 'link',
         },
         {
           title: 'Estrategia de Producto',
-          desc: 'Del concepto al lanzamiento — hojas de ruta, arquitectura y go-to-market.',
+          desc: 'Del concepto al lanzamiento.hojas de ruta, arquitectura y go-to-market.',
           icon: 'chart',
         },
       ],
@@ -249,17 +218,15 @@ export const translations = {
           tag: 'SaaS',
           description:
             'Analítica de producción en tiempo real y seguimiento de OEE con mantenimiento predictivo.',
-          result: '340% de aumento en visibilidad de producción',
           tech: ['React', 'Node.js', 'PostgreSQL'],
           gradientClass: 'project-gradient-1',
         },
         {
-          title: 'Carcasa Robótica 3D',
-          tag: 'Hardware',
+          title: 'Plataforma de Analítica IA',
+          tag: 'AI/ML',
           description:
-            'Carcasas de brazo robótico industrial optimizadas para impresión FDM con herramientas personalizadas.',
-          result: '67% de reducción en ciclo de prototipado',
-          tech: ['CAD', 'FDM', 'Ciencia de Materiales'],
+            'Pipeline de datos inteligente con insights ML y dashboards de reportes automatizados.',
+          tech: ['Python', 'TensorFlow', 'Next.js'],
           gradientClass: 'project-gradient-2',
         },
         {
@@ -267,7 +234,6 @@ export const translations = {
           tag: 'Fintech',
           description:
             'Integración multi-exchange de baja latencia con analítica de riesgo en tiempo real.',
-          result: 'Ejecución sub-5ms en 12 exchanges',
           tech: ['Python', 'WebSockets', 'Redis'],
           gradientClass: 'project-gradient-3',
         },
@@ -292,8 +258,8 @@ export const translations = {
         { others: 'Semanas de reuniones de descubrimiento', us: 'Prototipo funcional en 5 días' },
         { others: 'Promesas vagas de "agilidad"', us: 'Sprints de alcance fijo con demos diarios' },
         { others: 'Juniors con precios de seniors', us: 'Ingenieros senior en cada proyecto' },
-        { others: 'Desaparecen tras el lanzamiento', us: '5 años de asociación promedio' },
-        { others: 'Solo piensan en software', us: 'Full-stack: firmware a la nube' },
+        { others: 'Desaparecen tras el lanzamiento', us: 'Asociación y soporte a largo plazo' },
+        { others: 'Plantillas genéricas', us: 'Arquitectura personalizada para cada proyecto' },
       ],
     },
     testimonials: {
@@ -309,14 +275,14 @@ export const translations = {
         },
         {
           quote:
-            'Su integración IoT redujo nuestros costos de monitoreo un 40% y nos dio visibilidad en tiempo real que nunca tuvimos. El equipo opera como una unidad de élite.',
+            'Su integración de sistemas nos dio visibilidad en tiempo real que nunca tuvimos. El equipo opera como una unidad de élite.',
           name: 'Sarah Okonjo',
           role: 'VP de Ingeniería',
           company: 'NexGen Manufacturing',
         },
         {
           quote:
-            'La plataforma de trading maneja más de 50K conexiones simultáneas con latencia sub-5ms. DegenTech entiende el rendimiento a nivel de hardware.',
+            'La plataforma de trading maneja escala masiva sin despeinarse. DegenTech entiende el rendimiento a todos los niveles.',
           name: 'James Whitfield',
           role: 'Director de Tecnología',
           company: 'Meridian Capital',
@@ -330,12 +296,12 @@ export const translations = {
         {
           name: 'Anthony Rodelo',
           role: 'Cofundador y CEO',
-          bio: 'Lidera la visión y estrategia de la empresa. Enfocado en escalar sistemas autónomos en diversas industrias.',
+          bio: 'Lidera la visión y estrategia de la empresa. Enfocado en escalar soluciones de software en diversas industrias.',
         },
         {
           name: 'Samir Gonzalez',
           role: 'Cofundador y CTO',
-          bio: 'Supervisa la ingeniería y arquitectura. Especializado en sistemas distribuidos e infraestructura IoT.',
+          bio: 'Supervisa la ingeniería y arquitectura. Especializado en sistemas distribuidos e infraestructura cloud.',
         },
         {
           name: 'Ismael Morales',
@@ -350,7 +316,7 @@ export const translations = {
       cta: 'Iniciar un Proyecto',
     },
     footer: {
-      tagline: 'Construyendo el futuro de los sistemas autónomos.',
+      tagline: 'Construyendo el futuro del software.',
       products: 'Productos',
       company: 'Empresa',
       connect: 'Conectar',

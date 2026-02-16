@@ -1,17 +1,13 @@
 export const clientLogos = [
-  'Axiom Robotics',
-  'NexGen Manufacturing',
-  'Meridian Capital',
-  'Orbital Systems',
-  'Helix BioTech',
-  'Vanguard Dynamics',
+  'Tecnoprints',
+  'Centro Inca',
 ];
 
 export const footerLinks = {
   products: [
     { label: 'Custom Software', href: '#capabilities' },
-    { label: '3D Manufacturing', href: '#capabilities' },
-    { label: 'IoT Integration', href: '#capabilities' },
+    { label: 'Web Applications', href: '#capabilities' },
+    { label: 'System Integration', href: '#capabilities' },
   ],
   company: [
     { label: 'Projects', href: '#work' },

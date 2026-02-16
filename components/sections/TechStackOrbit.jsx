@@ -14,7 +14,7 @@ const techItems = [
   { name: 'AWS', ring: 3 },
   { name: 'Kubernetes', ring: 3 },
   { name: 'TensorFlow', ring: 3 },
-  { name: 'MQTT', ring: 3 },
+  { name: 'GraphQL', ring: 3 },
 ];
 
 function OrbitRing({ radius, duration, items, reverse = false }) {
@@ -30,7 +30,7 @@ function OrbitRing({ radius, duration, items, reverse = false }) {
           height: radius * 2,
           top: `calc(50% - ${radius}px)`,
           left: `calc(50% - ${radius}px)`,
-          boxShadow: 'inset 0 0 30px rgba(99, 102, 241, 0.02)',
+          boxShadow: 'inset 0 0 30px rgba(123, 143, 163, 0.02)',
         }}
       />
       {/* Orbit items */}

@@ -1,13 +1,13 @@
 'use client';
 
 import { useTranslation } from '@/hooks/useTranslation';
-import { ArrowRight, TrendingUp } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 /* ─── Mock Browser UI Previews ─── */
 
 function BrowserChrome({ url, children }) {
   return (
-    <div className="rounded-t-lg overflow-hidden bg-[#080810] border-b border-white/[0.04]">
+    <div className="rounded-t-lg overflow-hidden bg-[#0A0A0E] border-b border-white/[0.04]">
       <div className="flex items-center gap-2 px-3.5 py-2.5 bg-white/[0.02]">
         <div className="flex items-center gap-1.5">
           <span className="w-[9px] h-[9px] rounded-full bg-white/[0.08]" />
@@ -18,7 +18,7 @@ function BrowserChrome({ url, children }) {
           <span className="text-[9px] font-mono text-white/20 truncate">{url}</span>
         </div>
       </div>
-      <div className="p-3 bg-[#06060C]">{children}</div>
+      <div className="p-3 bg-[#08080E]">{children}</div>
     </div>
   );
 }
@@ -53,12 +53,12 @@ function DashboardPreview() {
             <svg viewBox="0 0 200 50" className="w-full h-full" preserveAspectRatio="none">
               <defs>
                 <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="rgba(79,70,229,0.3)" />
-                  <stop offset="100%" stopColor="rgba(79,70,229,0)" />
+                  <stop offset="0%" stopColor="rgba(123,143,163,0.3)" />
+                  <stop offset="100%" stopColor="rgba(123,143,163,0)" />
                 </linearGradient>
               </defs>
               <path d="M0,40 Q20,38 40,32 T80,25 T120,18 T160,22 T200,12 V50 H0 Z" fill="url(#chartFill)" />
-              <path d="M0,40 Q20,38 40,32 T80,25 T120,18 T160,22 T200,12" fill="none" stroke="rgba(79,70,229,0.6)" strokeWidth="1.5" />
+              <path d="M0,40 Q20,38 40,32 T80,25 T120,18 T160,22 T200,12" fill="none" stroke="rgba(123,143,163,0.6)" strokeWidth="1.5" />
             </svg>
           </div>
         </div>
@@ -67,39 +67,41 @@ function DashboardPreview() {
   );
 }
 
-function CADPreview() {
+function AIPreview() {
   return (
-    <BrowserChrome url="cad.degentech.io/model">
+    <BrowserChrome url="analytics.degentech.io/insights">
       <div className="flex gap-2 h-[140px]">
-        <div className="flex-1 rounded-md bg-white/[0.01] border border-white/[0.04] flex items-center justify-center relative overflow-hidden">
-          <div className="absolute inset-0 opacity-[0.04]" style={{
-            backgroundImage: 'linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)',
-            backgroundSize: '20px 20px'
-          }} />
-          <svg viewBox="0 0 80 60" className="w-20 h-16 relative z-10">
-            <rect x="15" y="10" width="50" height="35" rx="3" fill="none" stroke="rgba(6,182,212,0.4)" strokeWidth="1" />
-            <rect x="20" y="15" width="50" height="35" rx="3" fill="none" stroke="rgba(6,182,212,0.25)" strokeWidth="1" />
-            <line x1="15" y1="10" x2="20" y2="15" stroke="rgba(6,182,212,0.2)" strokeWidth="0.5" />
-            <line x1="65" y1="10" x2="70" y2="15" stroke="rgba(6,182,212,0.2)" strokeWidth="0.5" />
-            <line x1="65" y1="45" x2="70" y2="50" stroke="rgba(6,182,212,0.2)" strokeWidth="0.5" />
-            <line x1="15" y1="45" x2="20" y2="50" stroke="rgba(6,182,212,0.2)" strokeWidth="0.5" />
-          </svg>
-          <div className="absolute bottom-2 left-2">
-            <svg viewBox="0 0 24 24" className="w-5 h-5">
-              <line x1="4" y1="20" x2="20" y2="20" stroke="rgba(239,68,68,0.5)" strokeWidth="1" />
-              <line x1="4" y1="20" x2="4" y2="4" stroke="rgba(74,222,128,0.5)" strokeWidth="1" />
-              <line x1="4" y1="20" x2="14" y2="14" stroke="rgba(96,165,250,0.5)" strokeWidth="1" />
-            </svg>
+        <div className="flex-1 flex flex-col gap-2">
+          <div className="flex gap-1.5">
+            <div className="flex-1 h-16 rounded-md bg-white/[0.02] border border-white/[0.04] p-2">
+              <div className="w-8 h-1 rounded bg-accent/30 mb-1.5" />
+              <div className="text-[9px] font-mono text-accent/50 mb-0.5">Accuracy</div>
+              <div className="text-[11px] font-mono text-heading/70 font-semibold">97.3%</div>
+            </div>
+            <div className="flex-1 h-16 rounded-md bg-white/[0.02] border border-white/[0.04] p-2">
+              <div className="w-8 h-1 rounded bg-emerald-400/30 mb-1.5" />
+              <div className="text-[9px] font-mono text-emerald-400/50 mb-0.5">Processed</div>
+              <div className="text-[11px] font-mono text-heading/70 font-semibold">2.4M</div>
+            </div>
+          </div>
+          <div className="flex-1 rounded-md bg-white/[0.02] border border-white/[0.04] overflow-hidden p-2 flex items-end gap-[3px]">
+            {[30, 45, 38, 55, 42, 60, 52, 68, 58, 72, 65, 78, 70, 85].map((h, i) => (
+              <div
+                key={i}
+                className="w-full rounded-sm bg-accent/30"
+                style={{ height: `${h}%` }}
+              />
+            ))}
           </div>
         </div>
         <div className="w-24 shrink-0 flex flex-col gap-1.5 text-[8px] font-mono">
-          <div className="text-white/30 uppercase tracking-wider mb-0.5">Properties</div>
-          <div className="flex justify-between"><span className="text-white/20">Material</span><span className="text-cyan/60">ABS-CF10</span></div>
-          <div className="flex justify-between"><span className="text-white/20">Infill</span><span className="text-cyan/60">95%</span></div>
-          <div className="flex justify-between"><span className="text-white/20">Layer</span><span className="text-cyan/60">0.2mm</span></div>
-          <div className="flex justify-between"><span className="text-white/20">Weight</span><span className="text-cyan/60">342g</span></div>
+          <div className="text-white/30 uppercase tracking-wider mb-0.5">Model</div>
+          <div className="flex justify-between"><span className="text-white/20">Type</span><span className="text-accent/60">LSTM</span></div>
+          <div className="flex justify-between"><span className="text-white/20">Epochs</span><span className="text-accent/60">150</span></div>
+          <div className="flex justify-between"><span className="text-white/20">Loss</span><span className="text-accent/60">0.023</span></div>
+          <div className="flex justify-between"><span className="text-white/20">F1</span><span className="text-accent/60">0.96</span></div>
           <div className="h-px bg-white/[0.04] my-1" />
-          <div className="flex justify-between"><span className="text-white/20">Status</span><span className="text-emerald-400/70">Ready</span></div>
+          <div className="flex justify-between"><span className="text-white/20">Status</span><span className="text-emerald-400/70">Live</span></div>
         </div>
       </div>
     </BrowserChrome>
@@ -152,7 +154,7 @@ function TradingPreview() {
   );
 }
 
-const previews = [DashboardPreview, CADPreview, TradingPreview];
+const previews = [DashboardPreview, AIPreview, TradingPreview];
 
 export default function Projects({ visible }) {
   const { t } = useTranslation();
@@ -206,12 +208,6 @@ export default function Projects({ visible }) {
                   <p className="text-body text-sm leading-relaxed mb-4">
                     {project.description}
                   </p>
-                  <div className="flex items-center gap-2 mb-4 py-2 px-3 rounded-lg bg-accent/[0.04] border border-accent/[0.08]">
-                    <TrendingUp className="w-3.5 h-3.5 text-cyan shrink-0" />
-                    <span className="text-[11px] font-mono text-cyan">
-                      {project.result}
-                    </span>
-                  </div>
                   <div className="flex flex-wrap gap-1.5 pt-3 border-t border-white/[0.06]">
                     {project.tech.map((tech, j) => (
                       <span key={j} className="text-[10px] font-mono text-body/60 bg-elevated px-2 py-0.5 rounded">
