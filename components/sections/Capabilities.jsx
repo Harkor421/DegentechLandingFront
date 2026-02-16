@@ -17,7 +17,7 @@ export default function Capabilities({ visible }) {
     <section
       id="capabilities"
       data-section="capabilities"
-      className="py-[100px] md:py-[140px] px-6 md:px-8 relative z-10"
+      className="py-16 md:py-[140px] px-6 md:px-8 relative z-10"
       aria-label="Capabilities"
     >
       <div className={`max-w-[1200px] mx-auto reveal ${visible ? 'visible' : ''}`}>

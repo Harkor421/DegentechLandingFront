@@ -44,7 +44,7 @@ export default function Hero() {
       <div className="absolute bottom-0 left-0 right-0 h-[45%]" style={{ background: 'linear-gradient(to top, #0A0A0E 0%, #0A0A0Ecc 8%, #0A0A0E66 25%, transparent 100%)' }} aria-hidden="true" />
 
       {/* Main content — left aligned */}
-      <div className="relative z-10 flex-1 flex items-center max-w-[1600px] w-full mx-auto px-6 md:px-10 lg:px-14 pt-24 pb-48">
+      <div className="relative z-10 flex-1 flex items-center max-w-[1600px] w-full mx-auto px-6 md:px-10 lg:px-14 pt-24 pb-32 md:pb-48">
         <div className="max-w-[700px]">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-[-0.02em] leading-[1.1] mb-3 animate-hero">
             <WordReveal text={t.hero.titleLine1} delay={200} />
@@ -59,7 +59,7 @@ export default function Hero() {
 
           <div className="animate-hero-delay-2 flex flex-wrap items-center gap-4">
             <a
-              href="#contact"
+              href="mailto:admin@degentech.co"
               className="bg-white text-black font-medium text-sm px-8 py-3.5 rounded-full inline-flex items-center gap-2 hover:bg-white/90 transition-all hover:scale-[1.02] active:scale-100"
             >
               {t.hero.cta1}
@@ -79,15 +79,15 @@ export default function Hero() {
 
       {/* Bottom logo strip */}
       <div className="relative z-10 border-t border-white/[0.06] animate-hero-delay-3">
-        <div className="w-full px-8 md:px-14 lg:px-20 py-6 flex items-center gap-10 md:gap-16">
+        <div className="w-full px-6 md:px-14 lg:px-20 py-5 md:py-6 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-16">
           <p className="text-[11px] font-mono uppercase tracking-[0.15em] text-white/30 whitespace-nowrap shrink-0">
             {t.marquee.label}
           </p>
-          <div className="flex items-center gap-12 md:gap-20">
+          <div className="flex items-center gap-6 sm:gap-12 md:gap-20 overflow-x-auto scrollbar-hide">
             {clientLogos.map((name, i) => (
               <span
                 key={name}
-                className="text-xl md:text-2xl font-bold text-white/70 tracking-tight animate-hero-logo"
+                className="text-lg sm:text-xl md:text-2xl font-bold text-white/70 tracking-tight whitespace-nowrap animate-hero-logo"
                 style={{ animationDelay: `${1.3 + i * 0.1}s` }}
               >
                 {name}

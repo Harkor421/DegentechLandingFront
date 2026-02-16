@@ -10,7 +10,7 @@ export default function Projects({ visible }) {
     <section
       id="work"
       data-section="work"
-      className="py-[100px] md:py-[120px] px-6 md:px-8 relative z-10"
+      className="py-16 md:py-[120px] px-6 md:px-8 relative z-10"
       aria-label="Featured projects"
     >
       <div className={`max-w-[1200px] mx-auto reveal ${visible ? 'visible' : ''}`}>

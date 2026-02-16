@@ -8,7 +8,7 @@ export default function Team({ visible }) {
   return (
     <section
       data-section="team"
-      className="py-[100px] md:py-[120px] px-6 md:px-8 relative z-10"
+      className="py-16 md:py-[120px] px-6 md:px-8 relative z-10"
       aria-label="Team"
     >
       <div className={`max-w-[1200px] mx-auto reveal ${visible ? 'visible' : ''}`}>

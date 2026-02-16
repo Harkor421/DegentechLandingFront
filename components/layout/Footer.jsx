@@ -34,8 +34,8 @@ export default function Footer() {
           aria-hidden="true"
         />
 
-        <div className="relative max-w-[1200px] mx-auto px-6 md:px-8 pt-24 pb-32 md:pt-32 md:pb-40">
-          <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-heading max-w-[600px] leading-[1.1] mb-6">
+        <div className="relative max-w-[1200px] mx-auto px-6 md:px-8 pt-16 pb-20 md:pt-32 md:pb-40">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-heading max-w-[600px] leading-[1.1] mb-6">
             {t.footer.ctaHeading}
           </h2>
           <p className="text-body/70 text-base md:text-lg max-w-[480px] leading-relaxed mb-6">
@@ -143,7 +143,7 @@ export default function Footer() {
             <p className="text-body/30 text-xs">
               &copy; {new Date().getFullYear()} {t.footer.copyright}
             </p>
-            <div className="flex items-center gap-6 text-xs">
+            <div className="flex flex-wrap items-center justify-center sm:justify-end gap-4 sm:gap-6 text-xs">
               <a href="#" className="text-body/40 hover:text-heading transition-colors duration-200">
                 {t.footer.terms}
               </a>
