@@ -1,160 +1,7 @@
 'use client';
 
 import { useTranslation } from '@/hooks/useTranslation';
-import { ArrowRight } from 'lucide-react';
-
-/* ─── Mock Browser UI Previews ─── */
-
-function BrowserChrome({ url, children }) {
-  return (
-    <div className="rounded-t-lg overflow-hidden bg-[#0A0A0E] border-b border-white/[0.04]">
-      <div className="flex items-center gap-2 px-3.5 py-2.5 bg-white/[0.02]">
-        <div className="flex items-center gap-1.5">
-          <span className="w-[9px] h-[9px] rounded-full bg-white/[0.08]" />
-          <span className="w-[9px] h-[9px] rounded-full bg-white/[0.08]" />
-          <span className="w-[9px] h-[9px] rounded-full bg-white/[0.08]" />
-        </div>
-        <div className="ml-2 flex-1 max-w-[180px] h-[22px] rounded-md bg-white/[0.03] border border-white/[0.04] flex items-center px-2.5">
-          <span className="text-[9px] font-mono text-white/20 truncate">{url}</span>
-        </div>
-      </div>
-      <div className="p-3 bg-[#08080E]">{children}</div>
-    </div>
-  );
-}
-
-function DashboardPreview() {
-  return (
-    <BrowserChrome url="app.factory.io/dashboard">
-      <div className="flex gap-2 h-[140px]">
-        <div className="w-8 shrink-0 flex flex-col gap-1.5 pt-1">
-          <div className="w-5 h-5 rounded bg-accent/20 mx-auto" />
-          <div className="w-5 h-1.5 rounded bg-white/[0.04] mx-auto mt-2" />
-          <div className="w-5 h-1.5 rounded bg-white/[0.06] mx-auto" />
-          <div className="w-5 h-1.5 rounded bg-white/[0.04] mx-auto" />
-          <div className="w-5 h-1.5 rounded bg-white/[0.04] mx-auto" />
-        </div>
-        <div className="flex-1 flex flex-col gap-2">
-          <div className="flex gap-1.5">
-            <div className="flex-1 h-10 rounded-md bg-accent/[0.08] border border-accent/[0.12] p-1.5">
-              <div className="w-6 h-1 rounded bg-accent/30 mb-1" />
-              <div className="text-[10px] font-mono text-accent/60 leading-none">94.2%</div>
-            </div>
-            <div className="flex-1 h-10 rounded-md bg-cyan/[0.08] border border-cyan/[0.12] p-1.5">
-              <div className="w-6 h-1 rounded bg-cyan/30 mb-1" />
-              <div className="text-[10px] font-mono text-cyan/60 leading-none">127</div>
-            </div>
-            <div className="flex-1 h-10 rounded-md bg-emerald-500/[0.08] border border-emerald-500/[0.12] p-1.5">
-              <div className="w-6 h-1 rounded bg-emerald-500/30 mb-1" />
-              <div className="text-[10px] font-mono text-emerald-500/60 leading-none">99.9%</div>
-            </div>
-          </div>
-          <div className="flex-1 rounded-md bg-white/[0.02] border border-white/[0.04] overflow-hidden p-2">
-            <svg viewBox="0 0 200 50" className="w-full h-full" preserveAspectRatio="none">
-              <defs>
-                <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="rgba(123,143,163,0.3)" />
-                  <stop offset="100%" stopColor="rgba(123,143,163,0)" />
-                </linearGradient>
-              </defs>
-              <path d="M0,40 Q20,38 40,32 T80,25 T120,18 T160,22 T200,12 V50 H0 Z" fill="url(#chartFill)" />
-              <path d="M0,40 Q20,38 40,32 T80,25 T120,18 T160,22 T200,12" fill="none" stroke="rgba(123,143,163,0.6)" strokeWidth="1.5" />
-            </svg>
-          </div>
-        </div>
-      </div>
-    </BrowserChrome>
-  );
-}
-
-function AIPreview() {
-  return (
-    <BrowserChrome url="analytics.degentech.io/insights">
-      <div className="flex gap-2 h-[140px]">
-        <div className="flex-1 flex flex-col gap-2">
-          <div className="flex gap-1.5">
-            <div className="flex-1 h-16 rounded-md bg-white/[0.02] border border-white/[0.04] p-2">
-              <div className="w-8 h-1 rounded bg-accent/30 mb-1.5" />
-              <div className="text-[9px] font-mono text-accent/50 mb-0.5">Accuracy</div>
-              <div className="text-[11px] font-mono text-heading/70 font-semibold">97.3%</div>
-            </div>
-            <div className="flex-1 h-16 rounded-md bg-white/[0.02] border border-white/[0.04] p-2">
-              <div className="w-8 h-1 rounded bg-emerald-400/30 mb-1.5" />
-              <div className="text-[9px] font-mono text-emerald-400/50 mb-0.5">Processed</div>
-              <div className="text-[11px] font-mono text-heading/70 font-semibold">2.4M</div>
-            </div>
-          </div>
-          <div className="flex-1 rounded-md bg-white/[0.02] border border-white/[0.04] overflow-hidden p-2 flex items-end gap-[3px]">
-            {[30, 45, 38, 55, 42, 60, 52, 68, 58, 72, 65, 78, 70, 85].map((h, i) => (
-              <div
-                key={i}
-                className="w-full rounded-sm bg-accent/30"
-                style={{ height: `${h}%` }}
-              />
-            ))}
-          </div>
-        </div>
-        <div className="w-24 shrink-0 flex flex-col gap-1.5 text-[8px] font-mono">
-          <div className="text-white/30 uppercase tracking-wider mb-0.5">Model</div>
-          <div className="flex justify-between"><span className="text-white/20">Type</span><span className="text-accent/60">LSTM</span></div>
-          <div className="flex justify-between"><span className="text-white/20">Epochs</span><span className="text-accent/60">150</span></div>
-          <div className="flex justify-between"><span className="text-white/20">Loss</span><span className="text-accent/60">0.023</span></div>
-          <div className="flex justify-between"><span className="text-white/20">F1</span><span className="text-accent/60">0.96</span></div>
-          <div className="h-px bg-white/[0.04] my-1" />
-          <div className="flex justify-between"><span className="text-white/20">Status</span><span className="text-emerald-400/70">Live</span></div>
-        </div>
-      </div>
-    </BrowserChrome>
-  );
-}
-
-function TradingPreview() {
-  const bars = [35, 42, 38, 52, 48, 55, 45, 60, 58, 65, 50, 68, 62, 72, 70, 75, 68, 78];
-  return (
-    <BrowserChrome url="trade.meridian.io">
-      <div className="flex gap-2 h-[140px]">
-        <div className="flex-1 flex flex-col">
-          <div className="flex items-center gap-2 mb-1.5">
-            <span className="text-[9px] font-mono text-heading/80">BTC/USD</span>
-            <span className="text-[9px] font-mono text-emerald-400/70">67,431.20</span>
-            <span className="text-[8px] font-mono text-emerald-400/50">+2.4%</span>
-          </div>
-          <div className="flex-1 rounded-md bg-white/[0.01] border border-white/[0.04] overflow-hidden flex items-end justify-around px-2 pb-1.5 pt-2 gap-[3px]">
-            {bars.map((h, i) => (
-              <div
-                key={i}
-                className={`w-full rounded-sm ${i > 13 ? 'bg-emerald-400/40' : i > 10 ? 'bg-emerald-400/25' : 'bg-white/[0.08]'}`}
-                style={{ height: `${h}%` }}
-              />
-            ))}
-          </div>
-        </div>
-        <div className="w-20 shrink-0 flex flex-col text-[7px] font-mono">
-          <div className="text-white/25 uppercase tracking-wider mb-1 text-[8px]">Book</div>
-          <div className="flex flex-col gap-[2px]">
-            {['67,445', '67,442', '67,440', '67,438'].map((p, i) => (
-              <div key={i} className="flex justify-between">
-                <span className="text-red-400/50">{p}</span>
-                <span className="text-white/15">{(1.5 + i * 0.3).toFixed(2)}</span>
-              </div>
-            ))}
-          </div>
-          <div className="h-px bg-accent/20 my-1" />
-          <div className="flex flex-col gap-[2px]">
-            {['67,430', '67,428', '67,425', '67,422'].map((p, i) => (
-              <div key={i} className="flex justify-between">
-                <span className="text-emerald-400/50">{p}</span>
-                <span className="text-white/15">{(0.8 + i * 0.4).toFixed(2)}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </BrowserChrome>
-  );
-}
-
-const previews = [DashboardPreview, AIPreview, TradingPreview];
+import { ArrowRight, ExternalLink, Github } from 'lucide-react';
 
 export default function Projects({ visible }) {
   const { t } = useTranslation();
@@ -176,53 +23,71 @@ export default function Projects({ visible }) {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {t.projects.items.map((project, i) => {
-            const Preview = previews[i];
-            return (
-              <div
-                key={i}
-                className={`glass-card rounded-xl overflow-hidden card-glow group transition-all duration-500 ${i === 0 ? 'md:col-span-2 lg:col-span-1' : ''}`}
-                style={{
-                  transitionDelay: `${i * 120}ms`,
-                }}
-              >
-                <div className="relative overflow-hidden">
-                  <div className="group-hover:scale-[1.02] transition-transform duration-500 origin-center">
-                    <Preview />
-                  </div>
-                  {/* Numbered index */}
-                  <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-black/60 backdrop-blur-sm border border-white/10 flex items-center justify-center">
-                    <span className="text-[10px] font-mono text-body/60">
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
-                  </div>
-                </div>
-                <div className="p-5 md:p-6">
-                  <span className="inline-block text-[10px] font-mono uppercase tracking-widest text-accent bg-accent/10 px-2.5 py-0.5 rounded-full mb-3">
-                    {project.tag}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {t.projects.items.map((project, i) => (
+            <div
+              key={i}
+              className="glass-card rounded-xl overflow-hidden card-glow group transition-all duration-500"
+              style={{ transitionDelay: `${i * 120}ms` }}
+            >
+              <div className="relative overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-[200px] md:h-[240px] object-cover object-top group-hover:scale-[1.03] transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#111116] via-transparent to-transparent opacity-60" />
+                <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-black/60 backdrop-blur-sm border border-white/10 flex items-center justify-center">
+                  <span className="text-[10px] font-mono text-body/60">
+                    {String(i + 1).padStart(2, '0')}
                   </span>
-                  <h3 className="text-heading font-semibold text-base mb-2 tracking-[-0.01em] group-hover:text-white transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-body text-sm leading-relaxed mb-4">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-1.5 pt-3 border-t border-white/[0.06]">
-                    {project.tech.map((tech, j) => (
-                      <span key={j} className="text-[10px] font-mono text-body/60 bg-elevated px-2 py-0.5 rounded">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  <a href="#" className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-accent hover:text-cyan transition-colors group/link">
-                    {t.projects.caseStudy}
-                    <ArrowRight className="w-3 h-3 group-hover/link:translate-x-1 transition-transform duration-300" />
-                  </a>
                 </div>
               </div>
-            );
-          })}
+              <div className="p-5 md:p-6">
+                <span className="inline-block text-[10px] font-mono uppercase tracking-widest text-accent bg-accent/10 px-2.5 py-0.5 rounded-full mb-3">
+                  {project.tag}
+                </span>
+                <h3 className="text-heading font-semibold text-base mb-2 tracking-[-0.01em] group-hover:text-white transition-colors">
+                  {project.title}
+                </h3>
+                <p className="text-body text-sm leading-relaxed mb-4">
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-1.5 pt-3 border-t border-white/[0.06]">
+                  {project.tech.map((tech, j) => (
+                    <span key={j} className="text-[10px] font-mono text-body/60 bg-elevated px-2 py-0.5 rounded">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <div className="mt-4 flex items-center gap-4">
+                  {project.previewUrl && (
+                    <a
+                      href={project.previewUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-medium text-accent hover:text-cyan transition-colors group/link"
+                    >
+                      <ExternalLink className="w-3 h-3" />
+                      {t.projects.viewProject}
+                      <ArrowRight className="w-3 h-3 group-hover/link:translate-x-1 transition-transform duration-300" />
+                    </a>
+                  )}
+                  {project.codeUrl && (
+                    <a
+                      href={project.codeUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-medium text-body/50 hover:text-accent transition-colors"
+                    >
+                      <Github className="w-3 h-3" />
+                      {t.projects.viewCode}
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
