@@ -63,7 +63,7 @@ export default function Navbar() {
 
           {/* Contact button */}
           <a
-            href="#contact"
+            href="mailto:admin@degentech.co"
             className="hidden sm:inline-block text-sm font-medium text-white/80 hover:text-white border border-white/20 hover:border-white/40 px-5 py-2 rounded-full transition-all"
           >
             {t.nav.contact}
@@ -98,7 +98,7 @@ export default function Navbar() {
           <a href="#process" onClick={() => setMobileOpen(false)} className="text-white/60 text-sm hover:text-white transition-colors">
             {t.nav.process}
           </a>
-          <a href="#contact" onClick={() => setMobileOpen(false)} className="text-sm font-medium text-white border border-white/20 px-4 py-2.5 rounded-full text-center mt-2">
+          <a href="mailto:admin@degentech.co" onClick={() => setMobileOpen(false)} className="text-sm font-medium text-white border border-white/20 px-4 py-2.5 rounded-full text-center mt-2">
             {t.nav.contact}
           </a>
         </div>

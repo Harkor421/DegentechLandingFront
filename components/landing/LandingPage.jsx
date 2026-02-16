@@ -11,8 +11,6 @@ import Capabilities from '@/components/sections/Capabilities';
 import Projects from '@/components/sections/Projects';
 import Difference from '@/components/sections/Difference';
 import Team from '@/components/sections/Team';
-import LiveTerminal from '@/components/sections/LiveTerminal';
-import APIContact from '@/components/sections/APIContact';
 import NoiseOverlay from '@/components/ui/NoiseOverlay';
 import SmokeLoader from '@/components/ui/SmokeLoader';
 import ScrollProgressBar from '@/components/ui/ScrollProgressBar';
@@ -38,8 +36,6 @@ export default function LandingPage() {
         <Projects visible={visible.work} />
         <Difference visible={visible.difference} />
         <Team visible={visible.team} />
-        <LiveTerminal visible={visible.terminal} />
-        <APIContact visible={visible.apicontact} />
       </main>
       <Footer />
     </div>

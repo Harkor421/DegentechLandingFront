@@ -69,17 +69,6 @@ p {
 }
 
 /* ═══════════════════════════════════════════
-   GLASSMORPHISM CARD
-   ═══════════════════════════════════════════ */
-.glass-card {
-  background: rgba(17, 17, 22, 0.7);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.2);
-}
-
-/* ═══════════════════════════════════════════
    GRADIENT MESH (HERO BACKGROUND)
    ═══════════════════════════════════════════ */
 @keyframes meshMove {
@@ -122,51 +111,6 @@ p {
 @keyframes shimmer {
   0% { background-position: 0% center; }
   100% { background-position: 200% center; }
-}
-
-/* ═══════════════════════════════════════════
-   FLOATING ANIMATION
-   ═══════════════════════════════════════════ */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-.animate-float {
-  animation: float 4s ease-in-out infinite;
-}
-
-/* ═══════════════════════════════════════════
-   BUTTON GLOW PULSE
-   ═══════════════════════════════════════════ */
-@keyframes btn-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(123, 143, 163, 0.1), 0 0 40px rgba(160, 178, 196, 0.05); }
-  50% { box-shadow: 0 0 30px rgba(123, 143, 163, 0.2), 0 0 60px rgba(160, 178, 196, 0.1); }
-}
-
-/* ═══════════════════════════════════════════
-   SHINE SWEEP EFFECT
-   ═══════════════════════════════════════════ */
-@keyframes shine-sweep {
-  0% { transform: translateX(-100%) skewX(-15deg); }
-  100% { transform: translateX(200%) skewX(-15deg); }
-}
-
-.btn-shine {
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-shine::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
-  animation: shine-sweep 4s ease-in-out infinite;
-  pointer-events: none;
 }
 
 /* ═══════════════════════════════════════════
@@ -276,24 +220,6 @@ p {
 }
 
 /* ═══════════════════════════════════════════
-   FLOATING AMBIENT DOTS
-   ═══════════════════════════════════════════ */
-@keyframes float-slow {
-  0%, 100% { transform: translate(0, 0); }
-  25% { transform: translate(10px, -15px); }
-  50% { transform: translate(-5px, -25px); }
-  75% { transform: translate(-15px, -10px); }
-}
-
-.ambient-dot {
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.08;
-  animation: float-slow 15s ease-in-out infinite;
-  pointer-events: none;
-}
-
-/* ═══════════════════════════════════════════
    STAGGER CHILDREN REVEAL
    ═══════════════════════════════════════════ */
 .stagger-reveal > * {
@@ -309,22 +235,6 @@ p {
 .stagger-reveal.visible > *:nth-child(4) { transition-delay: 300ms; opacity: 1; transform: translateY(0); }
 .stagger-reveal.visible > *:nth-child(5) { transition-delay: 400ms; opacity: 1; transform: translateY(0); }
 .stagger-reveal.visible > *:nth-child(6) { transition-delay: 500ms; opacity: 1; transform: translateY(0); }
-
-/* ═══════════════════════════════════════════
-   CARD HOVER EFFECTS
-   ═══════════════════════════════════════════ */
-.card-glow {
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.card-glow:hover {
-  border-color: rgba(123, 143, 163, 0.15);
-  box-shadow:
-    0 0 0 1px rgba(123, 143, 163, 0.06),
-    0 4px 24px rgba(123, 143, 163, 0.04),
-    0 12px 48px rgba(0, 0, 0, 0.5);
-  transform: translateY(-2px);
-}
 
 /* ═══════════════════════════════════════════
    BUTTON STYLES
@@ -426,45 +336,6 @@ p {
 }
 
 /* ═══════════════════════════════════════════
-   GRADIENT BORDER CARD (conic)
-   ═══════════════════════════════════════════ */
-.gradient-border {
-  position: relative;
-  background: #111116;
-  border-radius: 0.75rem;
-}
-
-.gradient-border::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  background: conic-gradient(from 180deg, transparent 60%, #7B8FA3, #A0B2C4, transparent 95%);
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.gradient-border:hover::before {
-  opacity: 1;
-}
-
-/* ═══════════════════════════════════════════
-   PROJECT GRADIENT PLACEHOLDERS
-   ═══════════════════════════════════════════ */
-.project-gradient-1 {
-  background: linear-gradient(135deg, rgba(123, 143, 163, 0.15) 0%, rgba(160, 178, 196, 0.08) 100%);
-}
-
-.project-gradient-2 {
-  background: linear-gradient(135deg, rgba(160, 178, 196, 0.15) 0%, rgba(123, 143, 163, 0.08) 100%);
-}
-
-.project-gradient-3 {
-  background: linear-gradient(135deg, rgba(123, 143, 163, 0.12) 0%, rgba(106, 123, 140, 0.1) 50%, rgba(160, 178, 196, 0.08) 100%);
-}
-
-/* ═══════════════════════════════════════════
    MARQUEE ANIMATION
    ═══════════════════════════════════════════ */
 @keyframes marquee {
@@ -558,18 +429,6 @@ html.lenis body {
 
 .orbit-item-reverse {
   animation: orbit-reverse var(--orbit-duration, 25s) linear infinite;
-}
-
-/* ═══════════════════════════════════════════
-   TERMINAL TYPING ANIMATION
-   ═══════════════════════════════════════════ */
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-.terminal-cursor {
-  animation: blink 1s step-end infinite;
 }
 
 /* ═══════════════════════════════════════════
