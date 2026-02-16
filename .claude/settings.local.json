@@ -9,7 +9,9 @@
       "Bash(git checkout:*)",
       "Bash(npm uninstall:*)",
       "Bash(npx next build)",
-      "Bash(test:*)"
+      "Bash(test:*)",
+      "Bash(npm run build:*)",
+      "Bash(lsof:*)"
     ]
   }
 }

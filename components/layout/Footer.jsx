@@ -78,7 +78,7 @@ export default function Footer() {
   return (
     <footer className="relative z-10" role="contentinfo">
       {/* Gradient top border */}
-      <div className="h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent" />
       <div className="max-w-[1200px] mx-auto px-6 md:px-8 py-16">
         {/* GitHub Heatmap */}
         <div className="mb-12 overflow-hidden">

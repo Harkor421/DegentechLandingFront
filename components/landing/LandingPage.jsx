@@ -6,8 +6,7 @@ import { useLenis } from '@/hooks/useLenis';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import Hero from '@/components/sections/Hero';
-import LogoMarquee from '@/components/sections/LogoMarquee';
-import UptimeStrip from '@/components/sections/UptimeStrip';
+
 import Capabilities from '@/components/sections/Capabilities';
 import Projects from '@/components/sections/Projects';
 import Process from '@/components/sections/Process';
@@ -18,7 +17,6 @@ import ContactCTA from '@/components/sections/ContactCTA';
 import TechStackOrbit from '@/components/sections/TechStackOrbit';
 import LiveTerminal from '@/components/sections/LiveTerminal';
 import APIContact from '@/components/sections/APIContact';
-import CustomCursor from '@/components/ui/CustomCursor';
 import NoiseOverlay from '@/components/ui/NoiseOverlay';
 import ScrollProgressBar from '@/components/ui/ScrollProgressBar';
 import CommandPalette from '@/components/ui/CommandPalette';
@@ -31,7 +29,6 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-primary relative dot-grid">
       <ScrollProgressBar />
-      <CustomCursor />
       <NoiseOverlay />
       <CommandPalette />
       <EasterEggs />
@@ -39,8 +36,6 @@ export default function LandingPage() {
       <Navbar />
       <main>
         <Hero />
-        <LogoMarquee />
-        <UptimeStrip />
         <Capabilities visible={visible.capabilities} />
         <Projects visible={visible.work} />
         <TechStackOrbit visible={visible.techstack} />
