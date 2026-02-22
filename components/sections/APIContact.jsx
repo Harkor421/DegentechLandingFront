@@ -42,7 +42,7 @@ export default function APIContact({ visible }) {
         {/* API endpoint card */}
         <div className="rounded-xl overflow-hidden border border-white/[0.06] shadow-2xl shadow-black/40">
           {/* Endpoint header */}
-          <div className="flex items-center gap-3 px-5 py-3 bg-[#0D0D14] border-b border-white/[0.04]">
+          <div className="flex items-center gap-3 px-5 py-3 bg-[#0D0D12] border-b border-white/[0.04]">
             <span className="text-[10px] font-mono font-bold text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded">
               POST
             </span>
@@ -134,7 +134,7 @@ export default function APIContact({ visible }) {
           </div>
 
           {/* Response preview */}
-          <div className="bg-[#060609] border-t border-white/[0.04] px-5 py-3">
+          <div className="bg-[#06060A] border-t border-white/[0.04] px-5 py-3">
             <div className="text-[10px] font-mono text-body/20">
               {'// Response: { "status": "received", "response_time": "< 24h" }'}
             </div>
