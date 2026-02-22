@@ -9,6 +9,14 @@
 </p>
 
 <p align="center">
+  <img src="https://img.shields.io/badge/Next.js-16-000000?style=flat&logo=nextdotjs&logoColor=white" alt="Next.js" />
+  <img src="https://img.shields.io/badge/React-19-61DAFB?style=flat&logo=react&logoColor=black" alt="React" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?style=flat&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/GSAP-3.14-88CE02?style=flat&logo=greensock&logoColor=white" alt="GSAP" />
+  <img src="https://img.shields.io/badge/JavaScript-JSX-F7DF1E?style=flat&logo=javascript&logoColor=black" alt="JavaScript" />
+</p>
+
+<p align="center">
   <a href="#overview">Overview</a> &middot;
   <a href="#tech-stack">Tech Stack</a> &middot;
   <a href="#getting-started">Getting Started</a> &middot;
