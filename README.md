@@ -1,16 +1,85 @@
-# React + Vite
+<p align="center">
+  <img src="public/logo.png" alt="DegenTech" width="60" />
+</p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<h1 align="center">DegenTech</h1>
 
-Currently, two official plugins are available:
+<p align="center">
+  <strong>Software & hardware for the autonomous economy.</strong>
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<p align="center">
+  <a href="#overview">Overview</a> &middot;
+  <a href="#tech-stack">Tech Stack</a> &middot;
+  <a href="#getting-started">Getting Started</a> &middot;
+  <a href="#project-structure">Project Structure</a>
+</p>
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Overview
 
-## Expanding the ESLint configuration
+DegenTech is a full-stack technology company that builds custom software, manufactures precision hardware, and integrates intelligent systems for companies worldwide. This repository contains the landing page and marketing site.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**What we do:**
+
+- **Custom Software** &mdash; SaaS platforms, APIs, and internal tools built for scale
+- **3D Manufacturing** &mdash; Rapid prototyping and production-grade parts with industrial precision
+- **IoT Integration** &mdash; Bridging hardware and software with connected device ecosystems
+- **Product Strategy** &mdash; End-to-end guidance from concept to launch
+
+## Tech Stack
+
+| Category | Technology |
+|---|---|
+| Framework | Next.js 16 |
+| UI | React 19 |
+| Styling | Tailwind CSS 4 |
+| Animations | GSAP, Lenis |
+| Icons | Lucide React |
+| Language | JavaScript (JSX) |
+
+## Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
+```
+
+The dev server runs at [http://localhost:3000](http://localhost:3000).
+
+## Project Structure
+
+```
+app/                  # Next.js app router pages
+  ├── page.js         # Landing page entry
+  ├── layout.js       # Root layout & metadata
+  ├── globals.css     # Design tokens & global styles
+  ├── about/          # About page
+  ├── services/       # Services page
+  ├── projects/       # Projects page
+  └── blog/           # Blog page
+
+components/
+  ├── landing/        # Landing page orchestrator
+  ├── sections/       # Page sections (Hero, Capabilities, etc.)
+  ├── layout/         # Navbar & Footer
+  ├── ui/             # Cursor, scroll bar, overlays
+  └── providers/      # Context providers
+
+i18n/                 # Internationalization (EN / ES)
+public/               # Static assets & images
+```
+
+## License
+
+All rights reserved.
