@@ -1,7 +1,6 @@
 'use client';
 
 import { useTranslation } from '@/hooks/useTranslation';
-import { X, Check } from 'lucide-react';
 
 export default function Difference({ visible }) {
   const { t } = useTranslation();
@@ -9,7 +8,7 @@ export default function Difference({ visible }) {
   return (
     <section
       data-section="difference"
-      className="py-[100px] md:py-[120px] px-6 md:px-8 relative z-10"
+      className="py-16 md:py-[120px] px-6 md:px-8 relative z-10"
       aria-label="Why choose us"
     >
       <div className={`max-w-[1200px] mx-auto reveal ${visible ? 'visible' : ''}`}>
@@ -24,43 +23,32 @@ export default function Difference({ visible }) {
 
         <div className="max-w-[800px] mx-auto">
           {/* Column headers */}
-          <div className="grid grid-cols-2 gap-4 mb-6 px-4">
-            <div className="text-xs font-mono uppercase tracking-widest text-body/40">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-2">
+            <div className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-body/40">
               {t.difference.othersHeader}
             </div>
-            <div className="text-xs font-mono uppercase tracking-widest text-accent">
+            <div className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-accent">
               {t.difference.usHeader}
             </div>
           </div>
 
           {/* Comparison rows */}
-          <div className="flex flex-col gap-3">
+          <div className="border-t border-white/[0.06]">
             {t.difference.items.map((item, i) => (
               <div
                 key={i}
-                className="grid grid-cols-2 gap-4 glass-card rounded-xl p-4 md:p-5 group hover:border-accent/15 transition-all duration-300"
+                className="grid grid-cols-2 gap-3 sm:gap-4 py-4 sm:py-5 border-b border-white/[0.06]"
                 style={{
-                  transitionDelay: visible ? `${i * 80}ms` : '0ms',
                   opacity: visible ? 1 : 0,
-                  transform: visible ? 'translateX(0)' : 'translateX(-10px)',
+                  transform: visible ? 'translateY(0)' : 'translateY(10px)',
+                  transitionProperty: 'opacity, transform',
+                  transitionDuration: '0.5s',
+                  transitionTimingFunction: 'ease',
+                  transitionDelay: visible ? `${i * 80}ms` : '0ms',
                 }}
               >
-                <div className="flex items-start sm:items-center gap-2 sm:gap-3">
-                  <div className="w-5 h-5 rounded-full bg-red-500/10 border border-red-400/20 flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">
-                    <X className="w-3 h-3 text-red-400/70" />
-                  </div>
-                  <span className="text-xs sm:text-sm text-body/40 line-through decoration-white/10">
-                    {item.others}
-                  </span>
-                </div>
-                <div className="flex items-start sm:items-center gap-2 sm:gap-3">
-                  <div className="w-5 h-5 rounded-full bg-emerald-500/10 border border-emerald-400/20 flex items-center justify-center shrink-0 mt-0.5 sm:mt-0 group-hover:bg-emerald-500/20 group-hover:border-emerald-400/30 transition-colors">
-                    <Check className="w-3 h-3 text-emerald-400" />
-                  </div>
-                  <span className="text-xs sm:text-sm text-heading font-medium">
-                    {item.us}
-                  </span>
-                </div>
+                <span className="text-xs sm:text-sm text-body/50">{item.others}</span>
+                <span className="text-xs sm:text-sm text-heading">{item.us}</span>
               </div>
             ))}
           </div>

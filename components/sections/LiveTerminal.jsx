@@ -56,7 +56,7 @@ export default function LiveTerminal({ visible }) {
         {/* Terminal window */}
         <div className="rounded-xl overflow-hidden border border-white/[0.06] shadow-2xl shadow-black/40">
           {/* Title bar */}
-          <div className="flex items-center gap-2 px-4 py-3 bg-[#0D0D14] border-b border-white/[0.04]">
+          <div className="flex items-center gap-2 px-4 py-3 bg-[#0D0D12] border-b border-white/[0.04]">
             <div className="flex items-center gap-1.5">
               <span className="w-3 h-3 rounded-full bg-red-500/60" />
               <span className="w-3 h-3 rounded-full bg-yellow-500/60" />

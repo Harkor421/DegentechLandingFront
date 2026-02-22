@@ -17,16 +17,9 @@ export default function Capabilities({ visible }) {
     <section
       id="capabilities"
       data-section="capabilities"
-      className="py-[100px] md:py-[140px] px-6 md:px-8 relative z-10 overflow-hidden"
+      className="py-16 md:py-[140px] px-6 md:px-8 relative z-10"
       aria-label="Capabilities"
     >
-      {/* Ambient background elements */}
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="ambient-dot w-3 h-3 bg-accent top-[20%] left-[8%]" style={{ animationDelay: '0s' }} />
-        <div className="ambient-dot w-2 h-2 bg-cyan top-[60%] right-[12%]" style={{ animationDelay: '3s' }} />
-        <div className="ambient-dot w-4 h-4 bg-violet top-[80%] left-[25%]" style={{ animationDelay: '7s' }} />
-        <div className="ambient-dot w-2 h-2 bg-accent bottom-[15%] right-[30%]" style={{ animationDelay: '10s' }} />
-      </div>
       <div className={`max-w-[1200px] mx-auto reveal ${visible ? 'visible' : ''}`}>
         <div className="mb-14">
           <span className="text-accent text-xs font-mono uppercase tracking-widest mb-3 block">
@@ -41,15 +34,15 @@ export default function Capabilities({ visible }) {
           {t.capabilities.items.map((cap, i) => (
             <div
               key={i}
-              className="glass-card rounded-xl p-7 md:p-8 card-glow group cursor-default transition-all duration-500"
+              className="bg-card rounded-xl p-7 md:p-8 border border-white/[0.06] group cursor-default transition-all duration-300 hover:border-white/[0.10]"
               style={{
                 transitionDelay: visible ? `${i * 100}ms` : '0ms',
                 opacity: visible ? 1 : 0,
                 transform: visible ? 'translateY(0)' : 'translateY(20px)',
               }}
             >
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-accent/20 to-cyan/10 border border-accent/15 flex items-center justify-center mb-5 group-hover:from-accent/30 group-hover:to-cyan/20 group-hover:border-accent/25 group-hover:shadow-lg group-hover:shadow-accent/10 transition-all duration-300">
-                <div className="text-accent group-hover:text-cyan transition-colors duration-300">
+              <div className="w-10 h-10 rounded-lg bg-elevated border border-white/[0.06] flex items-center justify-center mb-5">
+                <div className="text-accent">
                   {icons[cap.icon]}
                 </div>
               </div>

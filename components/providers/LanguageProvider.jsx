@@ -6,17 +6,14 @@ import { translations } from '@/i18n/translations';
 export const LanguageContext = createContext();
 
 function detectLanguage() {
-  if (typeof window === 'undefined') return 'en';
+  if (typeof window === 'undefined') return 'es';
   const stored = localStorage.getItem('degentech-lang');
   if (stored && translations[stored]) return stored;
-
-  const browserLang = navigator.language || navigator.userLanguage || 'en';
-  const primary = browserLang.split('-')[0].toLowerCase();
-  return translations[primary] ? primary : 'en';
+  return 'es';
 }
 
 export function LanguageProvider({ children }) {
-  const [lang, setLang] = useState('en');
+  const [lang, setLang] = useState('es');
 
   useEffect(() => {
     setLang(detectLanguage());

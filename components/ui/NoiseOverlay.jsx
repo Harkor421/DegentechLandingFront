@@ -3,15 +3,15 @@
 export default function NoiseOverlay() {
   return (
     <div
-      className="fixed inset-0 pointer-events-none z-[100]"
-      style={{ opacity: 0.03 }}
+      className="fixed pointer-events-none z-[100] film-grain"
+      style={{ inset: '-10%', width: '120%', height: '120%' }}
       aria-hidden="true"
     >
       <svg className="w-full h-full">
         <filter id="noise">
           <feTurbulence
             type="fractalNoise"
-            baseFrequency="0.85"
+            baseFrequency="0.65"
             numOctaves="4"
             stitchTiles="stitch"
           />
