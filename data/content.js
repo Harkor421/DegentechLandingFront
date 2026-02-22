@@ -1,27 +1,26 @@
 export const clientLogos = [
-  'Axiom Robotics',
-  'NexGen Manufacturing',
-  'Meridian Capital',
-  'Orbital Systems',
-  'Helix BioTech',
-  'Vanguard Dynamics',
+  'Tecnoprints',
+  'Pump Archive',
+  "Claude's World",
+  'El Impostor',
 ];
 
 export const footerLinks = {
-  products: [
-    { label: 'Custom Software', href: '#capabilities' },
-    { label: '3D Manufacturing', href: '#capabilities' },
-    { label: 'IoT Integration', href: '#capabilities' },
-  ],
-  company: [
+  explore: [
+    { label: 'Services', href: '#capabilities' },
     { label: 'Projects', href: '#work' },
     { label: 'Process', href: '#process' },
+    { label: 'Team', href: '#team' },
+  ],
+  support: [
     { label: 'Contact', href: '#contact' },
     { label: 'Privacy Policy', href: '/privacy', isRoute: true },
+    { label: 'FAQs', href: '#' },
   ],
   social: [
     { label: 'GitHub', href: 'https://github.com', icon: 'github' },
     { label: 'Twitter', href: 'https://twitter.com', icon: 'twitter' },
     { label: 'LinkedIn', href: 'https://linkedin.com', icon: 'linkedin' },
+    { label: 'YouTube', href: 'https://youtube.com', icon: 'youtube' },
   ],
 };
